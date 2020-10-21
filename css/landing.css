@@ -223,7 +223,7 @@ main{
     color:whitesmoke;
 }
 .mainblocks .two{
-    margin:30px auto 0 auto;
+   /* margin:30px auto 0 auto;*/
     color: orange;
     background-color:#2f4f4f;
     font-family:'poppins' ,sans-serif;
@@ -420,7 +420,7 @@ font-size:0.5em;
     padding-top: 90px;
     padding-bottom: 40px;
     background-color: #2f4f4f;
-    margin-top: 20vh;
+   /* margin-top: 20vh; */
 }
 
 .contact{
@@ -494,4 +494,45 @@ font-size:0.5em;
 }
 .sub:hover{
     background-color: #344949;
+}
+@media screen and (max-width:2135px){
+    .eml{
+      width: 50vh;  
+    }
+    .fname{
+        margin-top: 15px;
+    }
+}/*
+@media screen and (max-width:2163px){
+    .fname{
+        width:50vh;
+        height:50px;
+        border:1px solid grey;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #293838;
+        color:whitesmoke
+    }
+    .eml{
+        width: 100vh;
+        height: 50px;
+        border:1px solid grey;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #293838;
+        margin-top: 15px;
+        color: whitesmoke;
+    }
+    .tarea{
+       
+        border:1px solid grey;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: #293838;
+        margin-top: 15px;
+        color: whitesmoke;
+        
+    }*/
+        
+    
 }
