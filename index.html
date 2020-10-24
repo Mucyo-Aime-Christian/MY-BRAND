@@ -12,15 +12,15 @@
 <body>
 <nav class="fixed-nav-bar" id="navbar">
     <div class="logo">
-        <h3><a href="#">MR CHRIS</a></h3>
+        <h3><a href="index.html">MR CHRIS</a></h3>
     </div>
     <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Sign in</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="burger">
         <div class="line1"></div>
@@ -34,11 +34,11 @@
             <div class="line1">hello, my name is </div>
             <div class="line2">Mucyo Aime Christian </div>
             <div class="line3">and am a <span> Designer</span></div>
-            <button class="btn">Contact Me </button>
+            <button class="btn" onclick="document.location='#contact'"> Contact Me </button>
         </div>
     </header>
     <main>
-    <div class="about">
+    <div class="about" id="about">
     <div class="bt"><h2>ABOUT ME</h2> <br/><br/><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
          Quasi expedita tenetur, quibusdam ab officia natus eaque nam officiis aperiam perferendis!
          Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br/><br/>
@@ -50,7 +50,7 @@
     <br/><br/><h3>DIGITAL ART</h3><br/>From 2019 to present</p>
     </div>
     </div>
-    <div class="title">MY SKILLS</div>
+    <div class="title" id="skills">MY SKILLS</div>
     <div class="skills">
     <div class="myskills"><img src="./images/javascript.png" width="100%" height="60%">
     <h3>MY SKILLS IN JAVASCRIPT</h3><br/><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta, iste!
@@ -78,10 +78,10 @@
     </div>
     </div>
     </main>
-    <div class="content">CONTACT ME<br/><h4>GET IN TOUCH</h4></div>
+    <div class="content" id="contact">CONTACT ME<br/><h4>GET IN TOUCH</h4></div>
     <div class="contact">
         <div class="block">
-            <form>
+            <form action="">
                 <div class="row">
                   <div class="col-25">
                     <label for="fname">First Name</label>
