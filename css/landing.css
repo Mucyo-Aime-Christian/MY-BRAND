@@ -347,11 +347,12 @@ transform:rotate(-45deg)  translate(-12px,10px);
                   display: flex;
                   flex-flow:column wrap;   
               }
-            .col-25, .col-75, input[type=submit] {
+             .col-25, .col-75, input[type=submit] {
               width: 100%;
               margin-top: 0;
             }
           }
+
       footer{
         background-color: navy;
         flex:1 0 auto;
@@ -435,7 +436,7 @@ transform:rotate(-45deg)  translate(-12px,10px);
         font-size: 1.2em;;
     }
     
-    @media screen and (max-width:800px){
+    @media screen and (max-width:990px){
         .footer1{
             height:170vh;
             display: flex;
@@ -448,6 +449,17 @@ transform:rotate(-45deg)  translate(-12px,10px);
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
+        }
+    }
+    @media screen and (max-width:360px){
+        .footer2{
+            min-height: 60vh;
+            padding-top: 250px;
+        }
+    }
+    @media screen and (max-width:300px){
+        .footer2{
+            display: none;
         }
     }
     .top .fa{

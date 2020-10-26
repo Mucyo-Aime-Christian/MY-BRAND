@@ -1,0 +1,233 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family:'poppins' ,sans-serif;
+}
+/*navigation bar*/
+ nav{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     min-height: 8vh;
+     background-color:navy;
+     font-family:'poppins' ,sans-serif;
+    border-bottom: 1px solid #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+ }
+ #navbar{
+     transition:top 0.5s;
+ }
+.fixed-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    
+  }
+ .logo a{
+     text-decoration: none;
+     color:#ff8c00;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     font-size:18px;
+     text-decoration:#ff8c00;
+ }
+ .nav-links{
+     display:flex;
+     justify-content: space-around;
+     width:60%;
+ }
+ .nav-links a:hover {
+    color: darkorange;
+    transition:color 0.4s ease;
+ }
+ .nav-links li{
+     list-style: none;
+ }
+ .nav-links a{
+    color:rgb(233, 224, 224);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight:bold; 
+ }
+ .burger div{
+     width:25px;
+     height:3px;
+     margin:5px;
+     background-color:rgb(233, 224, 224);
+     transition: all 0.9s ease;
+ }
+ .burger{
+     display:none;
+     cursor: pointer;
+ }
+ @media screen and (max-width:1125px){
+     .nav-links{
+         width:60%;
+     }
+}
+@media screen and (max-width:836px){
+    .nav-links{
+        width:80%;
+    }
+}
+ @media screen and (max-width:700px){
+    body{
+        overflow-x: hidden;
+    }
+
+     .nav-links{
+        position:absolute;
+        background-color:navy;
+        right:0px;
+        height:92vh;
+        top:8vh;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:45%;
+        transform:translateX(100%);
+        transition:transform 0.5s ease-in;
+     }
+     .nav-links li{
+        opacity:0px;
+    }
+    .burger{
+        display:block;
+    }
+} 
+      .nav-active{
+      transform:translateX(0%);
+    }
+@keyframes navLinkFade{
+    from{
+     opacity: 0;
+     transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+.toggle .line1{
+transform:rotate(-45deg)  translate(-12px,10px);
+}
+.toggle .line2{
+  opacity:0;  
+}
+.toggle .line3{
+    transform: rotate(45deg);  
+}
+.container{
+    min-height: 55vh;
+    font-family:'poppins' ,sans-serif;
+}
+
+form h1{
+    text-align: center;
+    color:grey;
+    font-size: x-large;
+}
+
+form{
+    margin-left:480px;
+    margin-right:480px;
+    margin-top: 200px;
+    height: 30vh;
+    padding:20px 20px;
+    background-color: rgb(243, 241, 241);
+    border-radius: 10px;
+}
+  input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  button{
+    background-color:rgba(128, 126, 121, 0.411);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 190px;
+    margin-top: 40px;
+  }
+  
+  button:hover {
+    background-color: orange;
+  }
+   .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    margin-left: 60px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @media screen and (max-width: 900px) {
+    form{
+        width:100%;
+        margin-left: 100px;
+        margin-right: 60px;
+        height: 300px;
+    }
+  }
+  @media screen and (max-width:370px){
+      .row .col-75{
+          width:150px;
+      }
+  }
+  @media screen and (max-width:580px){
+      .form-container form{
+          width:80%;
+          min-height: 300px;
+          margin-left: 30px;
+      }
+      .row button{
+          margin-left: 60px;
+      }
+      .col-75{
+          width: 200px;
+      }
+  }
+  @media screen and (max-width:1300px){
+      form{
+          width:80%;
+          margin-left: 100px;
+          margin-right: 60px;
+          height: 300px;
+      }
+      button{
+          margin-left: 300px;
+      }
+  }
+
+.signup{
+    text-align: center;
+}
+
+
+.footer2{
+    height:5vh;
+    text-align: center;
+    color: grey;
+    padding:100px 50px;
+    border-top: 2px orange;
+    border-top-style: groove;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 100px;
+}
+.footer2 span{
+    color:orange;
+    font-size: 1.2em;;
+}

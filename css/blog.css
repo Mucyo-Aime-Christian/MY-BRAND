@@ -298,7 +298,14 @@ font-weight: lighter;
         justify-content: center;
     }
 }
-
+@media screen and (max-width:350px){
+    .footer2{
+        display: none;
+    }
+    footer{
+        min-height: 270vh;
+    }
+}
 .top .fa{
     display:inline-block;
     color:white;
