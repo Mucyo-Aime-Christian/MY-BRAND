@@ -148,6 +148,13 @@ form{
     border-radius: 4px;
     resize: vertical;
   }
+  #password{
+     width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; 
+  }
   button{
     background-color:rgba(128, 126, 121, 0.411);
     color: white;
