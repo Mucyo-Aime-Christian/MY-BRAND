@@ -193,6 +193,11 @@ form{
           width:150px;
       }
   }
+  @media screen and (max-width:300px){
+      .row .col-75{
+          width:100px;
+      }
+  }
   @media screen and (max-width:580px){
       .form-container form{
           width:80%;
