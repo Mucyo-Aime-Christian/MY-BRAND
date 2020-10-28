@@ -1,0 +1,241 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family:'poppins' ,sans-serif;
+}
+/*navigation bar*/
+ nav{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     min-height: 8vh;
+     background-color:navy;
+     font-family:'poppins' ,sans-serif;
+    border-bottom: 1px solid #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+ }
+ #navbar{
+     transition:top 0.5s;
+ }
+.fixed-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    
+  }
+ .logo a{
+     text-decoration: none;
+     color:#ff8c00;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     font-size: 18px;
+     text-decoration:#ff8c00;
+ }
+ .nav-links{
+     display:flex;
+     justify-content: space-around;
+     width:60%;
+ }
+ .nav-links a:hover {
+    color: darkorange;
+    transition:color 0.4s ease;
+ }
+ .nav-links li{
+     list-style: none;
+ }
+ .nav-links a{
+    color:rgb(233, 224, 224);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight:bold; 
+ }
+ .burger div{
+     width:25px;
+     height:3px;
+     margin:5px;
+     background-color:rgb(233, 224, 224);
+     transition: all 0.9s ease;
+ }
+ .burger{
+     display:none;
+     cursor: pointer;
+ }
+ @media screen and (max-width:1125px){
+     .nav-links{
+         width:60%;
+     }
+}
+@media screen and (max-width:836px){
+    .nav-links{
+        width:80%;
+    }
+}
+ @media screen and (max-width:700px){
+    body{
+        overflow-x: hidden;
+    }
+
+     .nav-links{
+        position:absolute;
+        background-color:navy;
+        right:0px;
+        height:92vh;
+        top:8vh;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:45%;
+        transform:translateX(100%);
+        transition:transform 0.5s ease-in;
+     }
+     .nav-links li{
+        opacity:0px;
+    }
+    .burger{
+        display:block;
+    }
+} 
+      .nav-active{
+      transform:translateX(0%);
+    }
+@keyframes navLinkFade{
+    from{
+     opacity: 0;
+     transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+.toggle .line1{
+transform:rotate(-45deg)  translate(-12px,10px);
+}
+.toggle .line2{
+  opacity:0;  
+}
+.toggle .line3{
+    transform: rotate(45deg);  
+}
+.admin-wraper{
+    margin-top:60px;
+    height:720px;
+    display:flex;
+}
+.admin-wraper .left-sidebar{
+    flex:2;
+    height:100%;
+    border:1px solid green;
+    background-color:wheat;
+}
+.admin-wraper .left-sidebar ul{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+.admin-wraper .left-sidebar ul li a{
+    text-decoration:none;
+    color:gray;
+    display:block;
+    border-bottom:1px solid rgb(201, 201, 100);
+    padding:18px;
+}
+.admin-wraper .left-sidebar ul li a:hover{
+    background:khaki;
+}
+.admin-wraper .admin-content{
+    flex:8;
+    height:100%;
+    border:1px solid grey;
+    padding:40px 100px 100px;
+    overflow-y:scroll;
+}
+.admin-content .page-title{
+    text-align:center;
+    margin-bottom:16px; 
+}
+.admin-content .button-grup a{
+    text-decoration:none;
+    padding:30px;
+    color:black;
+}
+.admin-wraper .admin-content .button-grup .posts{
+    background-color:khaki;
+    border-radius:8px;
+    margin-bottom:20px;
+    width:180px;
+    height:40px;
+    padding-top:10px;
+    text-align:center;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:18px;
+}
+th, 
+td{
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid #d3d3d3;
+}
+tr a{
+    text-decoration:none;
+}
+.edit{
+    color:green;
+}
+.delete{
+    color:red;
+}
+.edit:hover, .delete:hover, .publish:hover{
+    text-decoration:underline;
+}
+form div{
+    margin-bottom:16px;
+}
+.text-input{
+    width:123vh;
+    height:50px;
+    border-radius:6px;
+    border:1px solid grey;
+    padding:5px 5px;
+}
+.btn-big{
+    width:100px;
+    height:40px;
+}
+
+
+
+
+
+@media only screen and (max-width:780px){
+   .admin-wraper .admin-content{
+       overflow-x:hidden;
+   }
+   table th, td{
+      font-size:10px;
+   }
+}
+@media only screen and (max-width:600px){
+   .admin-wraper .admin-content{
+       overflow-x:hidden;
+       padding-left:10px;
+   }
+   table th, td{
+      font-size:7px;
+   }
+}
+@media only screen and (max-width:440px){
+    .admin-wraper .admin-content{
+        overflow-x:scroll;
+    }
+   table th, td{
+      font-size:5px;
+   }
+}
