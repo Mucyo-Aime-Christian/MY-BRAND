@@ -243,3 +243,7 @@ form{
     color:orange;
     font-size: 1.2em;;
 }
+.login a{
+    text-decoration:none;
+    color:white;
+}
