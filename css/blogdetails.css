@@ -165,13 +165,6 @@ header{
     color: white;
   }
 
-
-
-
-
-
-
-
 main{
     min-height: 200vh;
     background-color: rgba(255, 255, 255, 0.438);
@@ -206,8 +199,8 @@ main{
 }
 .paragraph{
     margin-top: 20px;
-    min-height: 125vh;
-    background-color: rgb(141, 138, 138);
+    min-height: 140vh;
+    background-color:whitesmoke;
     padding: 70px;
     color: whitesmoke;
 }
@@ -216,20 +209,6 @@ main{
     font-weight: lighter;
     font-family: sans-serif;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   .content h4{
     color:orange;
     font-weight: lighter;
@@ -290,11 +269,13 @@ main{
       }
       
       .block {
-          min-height: auto;
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0.438);
         padding: 20px;
         margin: 20px;
+      }
+      .block, form{
+          height: 250px;
       }
       .block h4{
         font-size: 2em;
@@ -316,6 +297,7 @@ main{
         background-color:rgb(226, 219, 219);
       }
       .block:nth-child(2){
+          min-height: 70vh;
           flex:2;
           background-color:rgb(226, 219, 219);
       }
@@ -335,6 +317,47 @@ main{
         display: table;
         clear: both;
       }
+
+
+    .comments .comment img{
+        margin-right: 10px;
+        margin-left: 15px;
+        float: left;
+        border-radius: 50%;
+    }
+      .cmt-title{
+          background-color:  rgba(165, 154, 154, 0.11);
+          color:orange;
+          font-size: 60px;
+          font-weight: lighter;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          text-align: left;
+          padding-left: 100px;
+      }
+      .comments{
+          background-color: rgba(165, 154, 154, 0.11);
+          display:flex;
+          flex-flow: column;
+          padding-bottom: 4px;
+      }
+      .comments .comment{
+        background-color:rgba(165, 154, 154, 0.11);
+          padding-top: 10px;
+          padding-left: 5px;
+          margin-left: 50px;
+          border: 1px solid grey;
+          flex: 1;
+          margin-top: 5px;
+          min-height: 100px;
+          width:95%;
+      }
+      .comment p{
+          padding-left:80px;
+      }
+      .comment h2, p, b{
+          color: gray;
+          float: left;
+      }
       @media screen and (max-width: 900px) {
           .contact{
               display: flex;
@@ -346,14 +369,45 @@ main{
         }
       }
 
-
-
-
-
-
-
-
-
+      @media screen and (max-width:800px){
+        .paragraph{
+            padding: 10px;
+        }
+        .blogpost{
+            display:flex;
+            flex-flow: column wrap;
+        }
+        .blogpost .post{
+            width: 100%;
+            margin: 10px;
+        }
+        .contact{
+            padding:2px;
+        }
+        .contact .block{
+            width:100%;
+            margin:2px;
+        }
+        footer .footer1{
+            height:170vh;
+            display: flex;
+            flex-flow:column;
+            justify-content: space-between;
+            padding:3px;
+        }
+        .footer1 .top-subscribe{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        .comments{
+            padding:2px;
+        }
+        .comments .comment{
+            width:100%;
+            margin-left: 1px;
+        }
+    }
 
   footer{
     background-color: navy;
@@ -363,7 +417,7 @@ main{
     display:flex;
     justify-content: space-between;
    padding:50px 70px;  
-   height: 70vh;
+   min-height: 70vh;
 }
 .footer1 .top{
      flex-basis: 30%;
@@ -422,8 +476,12 @@ font-weight: lighter;
     background-color:#ff8c00; 
     transition: 0.3s ease;
 }
-.top p{
+.footer1 .top p{
     color:whitesmoke;
+}
+.footer1 .top i{
+    color:whitesmoke;
+    padding-top:5px;
 }
 .footer2{
     height:30vh;
@@ -439,28 +497,29 @@ font-weight: lighter;
     color:orange;
     font-size: 1.2em;;
 }
-
-@media screen and (max-width:800px){
-    .footer1{
-        height:170vh;
-        display: flex;
-        flex-flow:column;
-        justify-content: space-between;
-        
-        
-    }
-    .footer1 .top-subscribe{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
+@media screen and (max-width:450px){
+    .block:nth-child(2){
+        min-height: auto;
     }
 }
+
 @media screen and (max-width:350px){
-    .footer2{
-        display: none;
+    .blogpost .post{
+    width:100%;
+    margin-left: 0px;
+    margin-bottom: 1px;
+    padding:2px;
+    }
+    .cmt-title{
+        font-size: xx-large;
     }
     footer{
-        min-height: 270vh;
+        min-height: 220vh;
+    }
+    .footer2{
+        padding:1px;
+        text-align: left;
+        padding:2px;
     }
 }
 

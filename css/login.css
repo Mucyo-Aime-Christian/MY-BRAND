@@ -1,249 +1,156 @@
-*{
-    padding:0px;
-    margin:0px;
+:root {
+    --body_gradient_left:#7200D0;
+    --body_gradient_right: #C800C1;
+    --form_bg: #ffffff;
+    --input_bg: #E5E5E5;
+    --input_hover:#eaeaea;
+    --submit_bg: #1FCC44;
+    --submit_hover: #40e263;
+    --icon_color:#6b6b6b;
+}
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family:'poppins' ,sans-serif;
 }
-/*navigation bar*/
- nav{
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     min-height: 8vh;
-     background-color:navy;
-     font-family:'poppins' ,sans-serif;
-    border-bottom: 1px solid #ffffff;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
- }
- #navbar{
-     transition:top 0.5s;
- }
-.fixed-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    
-  }
- .logo a{
-     text-decoration: none;
-     color:#ff8c00;
-     text-transform: uppercase;
-     letter-spacing: 1px;
-     font-size:18px;
-     text-decoration:#ff8c00;
- }
- .nav-links{
-     display:flex;
-     justify-content: space-around;
-     width:60%;
- }
- .nav-links a:hover {
-    color: darkorange;
-    transition:color 0.4s ease;
- }
- .nav-links li{
-     list-style: none;
- }
- .nav-links a{
-    color:rgb(233, 224, 224);
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight:bold; 
- }
- .burger div{
-     width:25px;
-     height:3px;
-     margin:5px;
-     background-color:rgb(233, 224, 224);
-     transition: all 0.9s ease;
- }
- .burger{
-     display:none;
-     cursor: pointer;
- }
- @media screen and (max-width:1125px){
-     .nav-links{
-         width:60%;
-     }
+body {
+    /* make the body full height*/
+    height: 100vh;
+    /* set our custom font */
+    font-family: 'Roboto',
+    sans-serif;
+    /* create a linear gradient*/
+    background-image: linear-gradient(to right, var(--body_gradient_left), var(--body_gradient_right));
+    display:flex;
 }
-@media screen and (max-width:836px){
-    .nav-links{
-        width:80%;
-    }
+#form_wrapper {
+    width: 1000px;
+    height: 700px;
+    /* this will help us center it*/
+    margin:auto;
+    background-color: var(--form_bg);
+    border-radius: 50px;
+    /* make it a grid container*/
+    display: grid;
+    /* with two columns of same width*/
+    grid-template-columns: 1fr 1fr;
+    /* with a small gap in between them*/
+    grid-gap: 5vw;
+    /* add some padding around */
+    padding: 5vh 15px;
 }
- @media screen and (max-width:700px){
-    body{
-        overflow-x: hidden;
-    }
-
-     .nav-links{
-        position:absolute;
-        background-color:navy;
-        right:0px;
-        height:92vh;
-        top:8vh;
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        width:45%;
-        transform:translateX(100%);
-        transition:transform 0.5s ease-in;
-     }
-     .nav-links li{
-        opacity:0px;
-    }
-    .burger{
-        display:block;
-    }
-} 
-      .nav-active{
-      transform:translateX(0%);
-    }
-@keyframes navLinkFade{
-    from{
-     opacity: 0;
-     transform: translateX(50px);
-    }
-    to{
-      opacity: 1;
-      transform: translateX(0%);
-    }
-}
-.toggle .line1{
-transform:rotate(-45deg)  translate(-12px,10px);
-}
-.toggle .line2{
-  opacity:0;  
-}
-.toggle .line3{
-    transform: rotate(45deg);  
-}
-.container{
-    min-height: 55vh;
-    font-family:'poppins' ,sans-serif;
+#form_left {
+    /* center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-form h1{
-    text-align: center;
-    color:grey;
-    font-size: x-large;
+#form_left img {
+    width: 350px;
+    height: 350px;
+}
+#form_right {
+    display: grid;
+    /* single column layout */
+    grid-template-columns: 1fr;
+    /* have some gap in between elements*/
+    grid-gap: 20px;
+    padding: 10% 5%;
+}
+.input_container {
+    background-color: var(--input_bg);
+    /* vertically align icon and text inside the div*/
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
 
-form{
-    margin-left:480px;
-    margin-right:480px;
-    margin-top: 200px;
-    height: 30vh;
-    padding:20px 20px;
-    background-color: rgb(243, 241, 241);
-    border-radius: 10px;
+.input_container:hover {
+    background-color: var(--input_hover);
 }
-  input[type=text]{
+
+.input_container,
+#input_submit {
+    height: 60px;
+    /* make the borders more round */
+    border-radius: 30px;
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  #password{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical; 
-  }
-  button{
-    background-color:rgba(128, 126, 121, 0.411);
-    color: white;
-    padding: 12px 20px;
+}
+
+.input_field {
+    /* customize the input tag with lighter font and some padding*/
+    color: var(--icon_color);
+    background-color: inherit;
+    width: 90%;
     border: none;
-    border-radius: 4px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.input_field:hover,
+.input_field:focus {
+    /* remove the outline */
+    outline: none;
+}
+
+#input_submit {
+    /* submit button has a different color and different padding */
+    background-color: var(--submit_bg);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+#input_submit:hover {
+    background-color: var(--submit_hover);
+    /* simple color transition on hover */
+    transition: background-color,
+        1s;
     cursor: pointer;
-    margin-left: 190px;
-    margin-top: 40px;
-  }
-  
-  button:hover {
-    background-color: orange;
-  }
-   .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-    margin-left: 60px;
-  }
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  @media screen and (max-width: 900px) {
-    form{
-        width:100%;
-        margin-left: 100px;
-        margin-right: 60px;
-        height: 300px;
+}
+h1,
+    span {
+        text-align: center;
     }
-  }
-  @media screen and (max-width:370px){
-      .row .col-75{
-          width:150px;
-      }
-  }
-  @media screen and (max-width:300px){
-      .row .col-75{
-          width:100px;
-      }
-  }
-  @media screen and (max-width:580px){
-      .form-container form{
-          width:80%;
-          min-height: 300px;
-          margin-left: 30px;
-      }
-      .row button{
-          margin-left: 60px;
-      }
-      .col-75{
-          width: 200px;
-      }
-  }
-  @media screen and (max-width:1300px){
-      form{
-          width:80%;
-          margin-left: 100px;
-          margin-right: 60px;
-          height: 300px;
-      }
-      button{
-          margin-left: 300px;
-      }
-  }
 
-.signup{
-    text-align: center;
-}
+    /* shift it a bit lower */
+    #create_account {
+        display: block;
+        position: relative;
+        top: 10px;
+    }
 
+    a {
+        /* remove default underline */
+        text-decoration: none;
+        color: var(--submit_bg);
+        font-weight: bold;
+    }
 
-.footer2{
-    height:5vh;
-    text-align: center;
-    color: grey;
-    padding:100px 50px;
-    border-top: 2px orange;
-    border-top-style: groove;
-    margin-left: 60px;
-    margin-right: 60px;
-    margin-top: 100px;
-}
-.footer2 span{
-    color:orange;
-    font-size: 1.2em;;
-}
-.login a{
-    text-decoration:none;
-    color:white;
-}
+    a:hover {
+        color: var(--submit_hover);
+    }
+
+    i {
+        color: var(--icon_color);
+    }
+      /* make it responsive */
+      @media screen and (max-width:768px) {
+
+        /* make the layout  a single column and add some margin to the wrapper */
+        #form_wrapper {
+            grid-template-columns: 1fr;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        /* on small screen we don't display the image */
+        #form_left {
+            display: none;
+        }
+    }
+    img{
+        border-radius: 50%;
+    }
