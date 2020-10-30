@@ -1,0 +1,170 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+#main{
+    display: flex;
+    align-items: stretch;
+    height:85vh;
+}
+
+.right-pane{
+    background-color: whitesmoke;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+.left-pane{
+    background-color: khaki;
+    color: grey;
+    width:20%;
+    padding: 100px 0px 30px 30px;
+    min-height: 100vh;
+}
+.menu-item{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.menu-item.active{
+    background-color: white;
+    color: black;
+}
+.menu-caption{
+    display: inline-block;
+    padding-top: 50px;
+}
+
+.pane-item{
+    padding:20px 40px;
+    display: none;
+
+}
+
+.pane-item-title{
+    font-size: 22px;
+    font-weight: 900;
+}
+.pane-item-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    
+}
+
+.card{
+    width: 140px;
+    border:  rgb(51, 6, 45) solid 2px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    transition: 0.3s;
+    margin: 10px;  
+}
+
+.card:hover, .card.active{
+    color: white;
+    
+}
+
+.card-text{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: capitalize;
+    
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(even){
+    background-color: rgb(235, 196, 231);
+}
+
+td, th{
+    max-width:200px;
+    text-align: center;
+    padding:8px;
+    
+}
+
+li.burger{
+    list-style: none;
+    display: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 798px){
+    #main{
+        display: flex;
+        flex-flow: column;
+    }
+    .menu.responsive-nav .user-avatar{
+        display:none;
+    }
+    .menu ul li{
+        display: none;
+    }
+
+    /*li.burger{
+        display: inline-block;
+    }*/
+
+    .left-pane{
+        display: none;
+    }
+
+    .right-pane{
+        width: 100%;
+    }
+
+    .left-pane.responsive{
+        position: absolute;
+        left:0;
+        top: 57px;
+        width:250px;
+        height:78vh;
+        display: block;
+    }
+
+   /* .left-pane.responsive .burger{
+        position: absolute;
+        left: 50%;
+        top:20px;
+    } */
+}
+@media only screen and (max-width:465px) {
+    .pane-item{
+        padding: 15px;
+    }
+}
+
+
+
+
