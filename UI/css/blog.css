@@ -164,39 +164,48 @@ header{
     background-color:#ff8c00;
     color: white;
   }
-  /*main contents*/
-main{
+  main{
     background: rgb(201, 201, 216);
-    flex:1 0 auto;
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-flow: row;
-    min-height: 90vh;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
     padding-top: 50px;
-}
-.post_1{
-    background-color: rgba(255, 255, 255, 0.438);
-    min-height: 70vh;
-    flex:1;
-    color:black;
-    padding: 20px;
-    border-radius: 14px;
-    margin: 20px;
-}
-@media screen and (max-width:1300px){
-    main{
-        display: flex;
-        flex-flow: column wrap;
-
-    }
-    .post_1{
-        min-height: 70vh;
-    }
-}
-@media screen and (max-width:800px){
+  }
   .post_1{
+      width: 22%;
       min-height: 60vh;
-  } 
+      background-color: rgba(255, 255, 255, 0.438);
+      color:black;
+      padding: 20px;
+      border-radius: 14px;
+      margin: 20px;
+
+  }
+  @media screen and (max-width:1334px){
+      .post_1{
+          width: 42%;
+      }
+  }
+  @media screen and (max-width:900px){
+    .post_1{
+        width: 48%;
+        margin: 4px;
+    }   
 }
+@media screen and (max-width:650px){
+    .post_1{
+        width: 97%;
+        margin: 4px;
+    }  
+    main{
+        padding:10px;
+    } 
+}
+
+  
 /*footer*/
   footer{
     background-color: navy;
