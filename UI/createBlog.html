@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" typetype="text/css" href="./css/nav.css">
+    <link rel="stylesheet" typetype="text/css" href="./css/createBlog.css">
+    <title>Create blog</title>
+  </head>
+  <body>
+   <section id="nav-container">
+        <nav id="navigation" class="nav">
+            <div class="logo">
+                Mr Chris
+            </div>
+            <div class="menu" id="menu">
+                <ul> 
+                    <li class="burger-icon" onclick="dropNav()"><i class="fa fa-bars"></i></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="login.html">Dash board</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                    <li><a href="createBlog.html">Create blog</a></li>
+                    <li><a href="edit-blog.html">Edit blog</a></li>
+                                        
+                </ul>
+                <div class="user-avatar"><img src="./images/pp.jpg" onclick="dropNav()"></div>
+            </div>
+
+        </nav>
+   </section>
+
+   <section id="form-container">
+    <div class="form">
+       
+        <form action="#" name="create-blog-form" class="form-controls">
+            <div class="form-title">
+                Create blog
+            </div>
+
+            <label for="title">Title</label><br>
+            <input type="text" name="title" class="title"><br>
+
+            <label for="description">Description</label><br>
+            <textarea name="description" id="" cols="100" rows="10"></textarea><br>
+
+            <label for="blog_picture"></label><br>
+            <input type="file" name="blog_picture" class="file-input"><br>
+
+            <div class="button-left"><button class="create-button">Create</button></div>
+
+
+        </form>
+
+    </div>
+   </section>
+
+   <section id="footer">
+    <p>Copyright &copy; 2020 All rights reserved, Mr Chris</p>
+  </section>
+
+
+   <script src="./js/nav.js"></script>
+  </body>
+  </html> 
