@@ -21,28 +21,7 @@ const checkLength =(input,min)=>{
       }
 }
 
-
-// a function to check login form
-/*
-const checkPassword= (input)=>{
-    const min = 6;
-    const max = 16;
-    var regularExpression  = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/; 
-    if(input.length < min){
-        showError(input, 'password must contain atleast 6');
-    }
-    if(input.length > max){
-        showError(input, 'password must contain atmost 16');
-    }
-    if(!regularExpression.test(input)) {
-        showError(input,'password should contain atleast one number and one special character');
-    }
-    else{
-        remove_error(input);
-        return true;
-    }
-}
-   */   //a function to display an error
+ //a function to display an error
 const showError=(input,message)=>{
     if(message=="email is not valid" && input.id=="subscribe"){
         const input_error = input.parentElement;
