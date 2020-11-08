@@ -43,7 +43,7 @@
       <h3>BEACH VACATION</h3><br/>
       <p style="font-size: medium;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-      <img src="./images/like.png" width="9%"><img src="./images/comment.png" width="9%" align="right">
+      <img src="./images/like.png" width="9%"><a href="blogdetails.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
     </div>
     <div class="post_1">
         <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
@@ -51,7 +51,7 @@
         <h3>BEST WINE FOR LIFE</h3><br/>
     <p style="font-size: medium;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
      Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><img src="./images/comment.png" width="9%" align="right">
+    <img src="./images/like.png" width="9%"><a href="blogdetails2.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
     </div>
     <div class="post_1">
         <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
@@ -59,7 +59,7 @@
         <h3>FASCINATING PANDA</h3><br/>
     <p style="font-size: medium;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
      Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><img src="./images/comment.png" width="9%" align="right">
+    <img src="./images/like.png" width="9%"><a href="blogdetails3.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
     </div>
     <div class="post_1">
         <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
@@ -67,7 +67,7 @@
         <h3>TROPICAL FOREST EXISTS</h3><br/>
     <p style="font-size: medium;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
      Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><img src="./images/comment.png" width="9%" align="right">
+    <img src="./images/like.png" width="9%"><a href="blogdetails4.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
     </div>
     </main>
     <footer>
@@ -96,17 +96,18 @@
             </div>
             <div class="top">
                 <div class="top-subscribe">
-                <form>
+                <form id="subform">
                 <h3>SUBSCRIBE TO NEWSLETTER</h3>
                 <div class="form-box">
-                <input type="email" class="subscribe" placeholder="Enter Email">
-                <button class="sub-btn" type="submit">SUBSCRIBE</button>
+                <input type="text" class="subscribe" id="email" name="mail" placeholder="Enter Email">
+                <h5 id="h">error_message</h5>
+                <button id="submit" class="sub-btn" type="submit">SUBSCRIBE</button>
                 </div>
                 </form>
                 </div>
                 <p><br/><br/><br/>FOLLOW US </p>
-                <a href="https://web.facebook.com/mucyo.aimechrischristian"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/chrisdolla17"><i class="fa fa-twitter"></i></a>
+                <a href="https://web.facebook.com/mucyo.aimechristian"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.twitter.com/chrisdolla17"><i class="fa fa-twitter"></i></a>
                 <a href="https://www.instagram.com/chris_.dolla"><i class="fa fa-instagram"></i></a>
             </div>
         </div>
@@ -114,6 +115,38 @@
     </footer>
 </main>
 </div>
+<!--validating and storing subscribers-->
+<script>
+const subscribeForm = document.querySelector('#subform');
+const smail = document.querySelector('#email');
+  subscribeForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    if(checkEmail(smail)){
+        db.collection('subscribers').add({
+        sender_email: smail.value
+      }).then(()=>{
+        subscribeForm.reset();
+        alert("Thank you for subscribing!")
+      }).catch((error)=>{
+        alert("sorry ! An error occured")
+      })
+    }
+  });
+
+
+</script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
+<script src="./js/firebaseconfig.js"></script>
+<script src="./js/Fvalidation.js"></script>
 <script src="./js/landing.js"></script>
 </body>
 </html>

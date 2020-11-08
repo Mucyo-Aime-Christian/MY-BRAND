@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/blogdetails.css">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+      
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -92,13 +101,14 @@
     <div class="content" id="contact">COMMENT ON THE BLOGS ABOVE<br/><h4>COMMENTS</h4></div>
     <div class="contact">
         <div class="block">
-            <form>
+            <form id="myform">
                 <div class="row">
                   <div class="col-25">
                     <label for="fname">First Name</label>
                   </div>
                   <div class="col-75">
                     <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <h5>error_message</h5>
                   </div>
                 </div>
                 <div class="row">
@@ -106,16 +116,18 @@
                     <label for="email">Email</label>
                   </div>
                   <div class="col-75">
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
+                    <input type="text" id="email" name="email" placeholder="example@gmail.com">
+                    <h5>error_message</h5>
                   </div>
                 </div>
                
                 <div class="row">
-                <div class="col-25">
-                <label for="subject">Comment</label>
+                 <div class="col-25">
+                 <label for="subject">Comment</label>
                 </div>
                 <div class="col-75">
-                <textarea id="subject" name="subject" placeholder="leave your comment here " style="height:80px"></textarea>
+                 <textarea id="subject" name="subject" placeholder="leave your comment here " style="height:80px"></textarea>
+                 <h5>error_message</h5>
                 </div>
                 </div>
                 <div class="row">
@@ -135,31 +147,11 @@
         </div>
     </div>
     <div class="cmt-title">comments</div>
-    <div class="comments">
-        <div class="comment"><img src="./images/pp.jpg" width="5%" height="auto"> 
-        <h2>JACK MA</h2><br/><br/>
-        <b>October 29th, 2020 AT 09:45AM</b><br/>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-             Amet vel sint accusantium libero officia molestias, similique doloribus obcaecati nulla sit?</p>
+    <div class="comments"> 
+        <h2></h2><br/><br/>
+        <b></b><br/>
+        <p></p>
         </div>
-        <div class="comment"><img src="./images/pp.jpg" width="5%" height="auto"> 
-            <h2>JACK MA</h2><br/><br/>
-            <b>October 29th, 2020 AT 09:45AM</b><br/>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                 Amet vel sint accusantium libero officia molestias, similique doloribus obcaecati nulla sit?</p>
-            </div>
-            <div class="comment"><img src="./images/pp.jpg" width="5%" height="auto"> 
-                <h2>JACK MA</h2><br/><br/>
-                <b>October 29th, 2020 AT 09:45AM</b><br/>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                     Amet vel sint accusantium libero officia molestias, similique doloribus obcaecati nulla sit?</p>
-                </div>
-                <div class="comment"><img src="./images/pp.jpg" width="5%" height="auto"> 
-                    <h2>JACK MA</h2><br/><br/>
-                    <b>October 29th, 2020 AT 09:45AM</b><br/>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                         Amet vel sint accusantium libero officia molestias, similique doloribus obcaecati nulla sit?</p>
-                    </div>
         
     </div>
      <footer>
@@ -188,10 +180,11 @@
                 </div>
                 <div class="top">
                     <div class="top-subscribe">
-                    <form>
+                    <form id="subform">
                     <h3>SUBSCRIBE TO NEWSLETTER</h3>
                     <div class="form-box">
-                    <input type="email" class="subscribe" placeholder="Enter Email">
+                    <input type="text" class="subscribe" id="subscribe" placeholder="Enter Email">
+                    <h5 id="h">error_message</h5>
                     <button class="sub-btn" type="submit">SUBSCRIBE</button>
                     </div>
                     </form>
@@ -205,6 +198,100 @@
             <div class="footer2"><span>Copyright ©2020 All rights reserved</span>| This template is made by Mr Chris</div>
         </footer>
     </div>
-    <script src="./js/landing.js"></script>
+    <script>
+        const contactForm = document.querySelector('#myform');
+        const name = document.querySelector('#fname');
+        const smail = document.querySelector('#email');
+        const message = document.querySelector('#subject');
+        var today= new Date();
+        //contact form validation and storing
+        contactForm.addEventListener('submit',(e)=>{
+               e.preventDefault();
+              if(checkLength(name,3) && checkEmail(smail) && checkLength(message,3)){
+                let arraymonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+                var msg_date= arraymonths[today.getMonth()]+' '+ today.getDay()+'  '+today.getFullYear()+'     '+ today.getHours()+':'+today.getMinutes();
+                   db.collection('Comments3').add({
+                        name: name.value,
+                        sender_email: smail.value,
+                        Comment: message.value,
+                        Time: msg_date
+                   }).then(()=>{
+                    contactForm.reset();
+                    alert("Comment submitted. Thank you")
+                   }).catch((error)=>{
+                       alert("an error occured !")
+                   })
+              }
+        });
+      </script>
+        <!--subscribe form and saving to firestore-->
+        <script>
+        const subscribeForm = document.querySelector('#subform');
+        const subscriberEmail = document.querySelector('#subscribe');
+        subscribeForm.addEventListener('submit',(e)=>{
+          e.preventDefault();
+          if(checkEmail(subscriberEmail)){
+            db.collection('subscribers').add({
+        sender_email: smail.value
+      }).then(()=>{
+        subscribeForm.reset();
+        alert("Thank you for subscribing!")
+      }).catch((error)=>{
+        alert("sorry ! An error occured")
+      })
+    }
+  });
+
+      
+      </script>
+      
+
+      <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+            authDomain: "capstone-a57ed.firebaseapp.com",
+            databaseURL: "https://capstone-a57ed.firebaseio.com",
+            projectId: "capstone-a57ed",
+            storageBucket: "capstone-a57ed.appspot.com",
+            messagingSenderId: "346183904314",
+            appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db= firebase.firestore();
+          db.settings = ({timestampsInSnapshots:true});
+        </script>
+
+      <script>
+        var msg_section= document.querySelector('.comments');
+
+function render(doc){
+  let box= document.createElement('div');
+  box.setAttribute('class', 'comment');
+
+  let name=document.createElement('h2');
+    name.textContent= doc.data().name;
+
+  let message=document.createElement('p');
+    message.textContent= doc.data().Comment;
+
+    let senderDate=document.createElement('b')
+    senderDate.textContent=doc.data().Time;
+
+    box.appendChild(name);
+    box.appendChild(senderDate);
+    box.appendChild(message);
+   
+  msg_section.appendChild(box);
+}
+db.collection('Comments3').get().then((snapshot)=>{
+  snapshot.docs.forEach(doc => {
+      render(doc);
+  });
+});
+      </script>
+      
+      <script src="./js/Fvalidation.js"></script>
+      <script src="./js/landing.js"></script>
     </body>
     </html>

@@ -314,3 +314,25 @@ font-weight: lighter;
   display: inline-block;
   margin: 5px 5px 2px;
 }
+body{
+  --error-color: #e74c3c;
+}
+.form-box h5{
+  font-size: .8rem;
+  color: var(--error-color);
+  visibility: hidden; 
+}
+.col-75 h5{
+  font-size: .8rem;
+  color: var(--error-color);
+  visibility: hidden;
+}
+ .error input {
+  border-color: var(--error-color);
+}
+.error > textarea{
+ border-color:var(--error-color)  !important;
+}
+.error h5{
+  visibility: visible;
+}

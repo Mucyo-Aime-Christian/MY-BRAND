@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/login.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -13,28 +22,49 @@ crossorigin="anonymous">
 <title>LOGIN FORM</title>
 </head>
 <body>
-  <div id="form_wrapper">
+  <form id="form_wrapper" onsubmit="event.preventDefault();">
       <div id="form_left">
           <img src="./images/pp.jpg" alt="profile pic">
       </div>
-      <div id="form_right">
+      <div id="form_right" class="form_right">
           <h1>Member Login</h1>
           <div class="input_container">
               <i class="fas fa-envelope"></i>
-              <input placeholder="Email" type="email" name="Email" id="field_email" class='input_field'>
+              <input placeholder="Email" type="text" name="Email" id="login" class='input_field'>  
           </div>
           <div class="input_container">
               <i class="fas fa-lock"></i>
-              <input  placeholder="Password" type="password" name="Password" id="field_password" class='input_field'>
+              <input  placeholder="Password" type="password" name="Password" id="field_password" class='input_field'>  
           </div>
+          <div class="error_message" id="error_message">lorem</div>
           <a href="dashboard.html"><input type="submit" value="Login" id='input_submit' class='input_field'></a>
           <span>Forgot <a href="#"> Username / Password ?</a></span>
           <span id='create_account'>
-              <a href="#">Create your account ➡ </a>
+              <a href="signup.html">Create your account ➡ </a>
           </span>
           <span><a href="./index.html">Back</a></span>
       </div>
-  </div>
+    </form>
+
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+            authDomain: "capstone-a57ed.firebaseapp.com",
+            databaseURL: "https://capstone-a57ed.firebaseio.com",
+            projectId: "capstone-a57ed",
+            storageBucket: "capstone-a57ed.appspot.com",
+            messagingSenderId: "346183904314",
+            appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db= firebase.firestore();
+          db.settings = ({timestampsInSnapshots:true});
+        </script>
+
+
+<script src="./js/loginvalidation.js"></script>
 </body>
 
 </html>
