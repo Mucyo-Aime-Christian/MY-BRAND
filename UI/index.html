@@ -176,21 +176,39 @@
     </footer>
 </main>
 
-
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+    authDomain: "capstone-a57ed.firebaseapp.com",
+    databaseURL: "https://capstone-a57ed.firebaseio.com",
+    projectId: "capstone-a57ed",
+    storageBucket: "capstone-a57ed.appspot.com",
+    messagingSenderId: "346183904314",
+    appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db= firebase.firestore();
+  db.settings = ({timestampsInSnapshots:true});
+</script>
 
 <script>
   const contactForm = document.querySelector('#myform');
   const name = document.querySelector('#fname');
   const sname = document.querySelector('#lname');
   const message = document.querySelector('#subject');
+  var today = new Date();
   //contact form validation and storing
   contactForm.addEventListener('submit',(e)=>{
          e.preventDefault();
         if(checkLength(name,3) && checkLength(sname,3) && checkLength(message,10)){
+          let arraymonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+                var msg_date= arraymonths[today.getMonth()]+' '+ today.getDate()+'  '+today.getFullYear()+'     '+ today.getHours()+':'+today.getMinutes();
              db.collection('message').add({
                   name: name.value,
                   surname: sname.value,
                   message: message.value,
+                  Time: msg_date
              }).then(()=>{
               contactForm.reset();
               alert("Form submission successfuly")
@@ -220,16 +238,6 @@
 
 </script>
 
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-
-<script src="./js/firebaseconfig.js"></script>
 <script src="./js/landing.js"></script>
 <script src="./js/Fvalidation.js"></script>
 </body>
