@@ -463,7 +463,7 @@ box.appendChild(message);
 
 msg_section.appendChild(box);
 }
-db.collection('message').get().then((snapshot)=>{
+db.collection('message').orderBy("timestamp", "desc").get().then((snapshot)=>{
 snapshot.docs.forEach(doc => {
   render(doc);
 });

@@ -211,6 +211,7 @@
                 let arraymonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
                 var msg_date= arraymonths[today.getMonth()]+' '+ today.getDay()+'  '+today.getFullYear()+'     '+ today.getHours()+':'+today.getMinutes();
                    db.collection('Comments3').add({
+                    timestamp:firebase.firestore.FieldValue.serverTimestamp(),
                         name: name.value,
                         sender_email: smail.value,
                         Comment: message.value,
@@ -284,7 +285,7 @@ function render(doc){
    
   msg_section.appendChild(box);
 }
-db.collection('Comments3').get().then((snapshot)=>{
+db.collection('Comments3').orderBy("timestamp","desc").get().then((snapshot)=>{
   snapshot.docs.forEach(doc => {
       render(doc);
   });
