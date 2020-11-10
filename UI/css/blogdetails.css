@@ -230,13 +230,6 @@ main{
         min-height: 70vh;
         background-color: whitesmoke;
     } 
-    input[type=email]{
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        resize: vertical;
-    }  
     input[type=text], textarea {
         width: 100%;
         padding: 12px;
@@ -272,7 +265,7 @@ main{
         margin: 20px;
       }
       .block, form{
-          height: 250px;
+          height: 300px;
       }
       .block h4{
         font-size: 2em;
@@ -314,18 +307,10 @@ main{
         display: table;
         clear: both;
       }
-
-
-    .comments .comment img{
-        margin-right: 10px;
-        margin-left: 15px;
-        float: left;
-        border-radius: 50%;
-    }
       .cmt-title{
           background-color:  rgba(165, 154, 154, 0.11);
           color:orange;
-          font-size: 60px;
+          font-size: 50px;
           font-weight: lighter;
           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
           text-align: left;
@@ -336,24 +321,27 @@ main{
           display:flex;
           flex-flow: column;
           padding-bottom: 4px;
+          margin-bottom: 80px;
       }
       .comments .comment{
         background-color:rgba(165, 154, 154, 0.11);
           padding-top: 10px;
           padding-left: 5px;
           margin-left: 50px;
-          border: 1px solid grey;
+          border: 0px solid grey;
           flex: 1;
           margin-top: 5px;
-          min-height: 100px;
+          min-height: 60px;
           width:95%;
       }
       .comment p{
-          padding-left:80px;
+          padding-top:10px;
+      }
+      .comment h2{
+          font-size: 20px;
       }
       .comment h2, p, b{
           color: gray;
-          float: left;
       }
       @media screen and (max-width: 900px) {
           .contact{
@@ -531,3 +519,26 @@ font-weight: lighter;
     display: inline-block;
     margin: 5px 5px 2px;
 }
+
+body{
+    --error-color: #e74c3c;
+}
+.form-box h5{
+    font-size: .8rem;
+    color:var(--error-color);
+    visibility: hidden; 
+}
+.col-75 h5{
+    font-size: .8rem;
+    color: var(--error-color);
+    visibility: hidden;
+  }
+   .error input {
+    border-color: var(--error-color);
+  }
+  .error > textarea{
+   border-color:var(--error-color)  !important;
+ }
+ .error h5{
+    visibility: visible;
+  }

@@ -164,7 +164,17 @@ header{
     background-color:#ff8c00;
     color: white;
   }
-  main{
+  #blogs h3{
+    text-transform: uppercase;
+  }
+  #blogs p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  #blogs{
     background: rgb(201, 201, 216);
     width: 100%;
     height: auto;
@@ -200,7 +210,7 @@ header{
         width: 97%;
         margin: 4px;
     }  
-    main{
+    #blogs{
         padding:10px;
     } 
 } 
@@ -313,4 +323,26 @@ font-weight: lighter;
 .post_1 .fa{
   display: inline-block;
   margin: 5px 5px 2px;
+}
+body{
+  --error-color: #e74c3c;
+}
+.form-box h5{
+  font-size: .8rem;
+  color: var(--error-color);
+  visibility: hidden; 
+}
+.col-75 h5{
+  font-size: .8rem;
+  color: var(--error-color);
+  visibility: hidden;
+}
+ .error input {
+  border-color: var(--error-color);
+}
+.error > textarea{
+ border-color:var(--error-color)  !important;
+}
+.error h5{
+  visibility: visible;
 }

@@ -17,12 +17,6 @@ const navSlide= () =>{
     });
 }
 navSlide();
- bg-blog-page
-  //dynamic navbar
-
-  
-
- develop
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;

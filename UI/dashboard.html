@@ -4,7 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" typetype="text/css" href="./css/nav.css">
@@ -147,60 +153,21 @@
                     Message
                 </div>
                 <div class="pane-item-content">
-                    <div class="users-messages">
+                    <div class="users-messages" id="users-message">
+                        
+                        
+                        
                         <div class="message">
-                            <div class="writer-avatar">
-                                <img src="./images/pp.jpg" alt="">
-                            </div>
+                            
                             <div class="message-body">
                                 <div class="writer-name">
-                                    Mr Chris
+                                    
                                 </div>
                                 <div class="message-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Natus dignissimos eum, possimus reiciendis hic suscipit!
+                                   
                                 </div>
                                 <div class="message-date">
-                                    October 3, 2020
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                         <div class="writer-avatar">
-                             <img src="./images/pp.jpg" alt="">
-                         </div>
-                         <div class="message-body">
-                             <div class="writer-name">
-                                 Mr Chris
-                             </div>
-                             <div class="message-content">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel atque, 
-                                id possimus quibusdam et asperiores itaque voluptatum, unde quasi 
-                                eligendi aut dolor doloremque eius cum sed quis dolorem facere aperiam? 
-                                Quae explicabo tenetur nemo accusamus iste optio incidunt illum quasi alias 
-                                consequuntur, dicta quis temporibus, 
-                                quia deserunt asperiores libero doloremque?
-                             </div>
-                             <div class="message-date">
-                                October 3, 2020
-                             </div>                             
-                         </div>
-                        </div>
-                        <div class="message">
-                            <div class="writer-avatar">
-                                <img src="./images/pp.jpg" alt="">
-                            </div>
-                            <div class="message-body">
-                                <div class="writer-name">
-                                    Mr Chris
-                                </div>
-                                <div class="message-content">
-                                   Lorem ipsum dolor sit amet consectetur 
-                                   adipisicing elit. Est accusantium 
-                                   veritatis cumque modi. Nemo, vitae!
-                                </div>
-                                <div class="message-date">
-                                    October 3, 2020
+                                    
                                 </div>                             
                             </div>
                            </div>
@@ -454,7 +421,54 @@
    </section>
 
    
+<script>
+   var firebaseConfig = {
+    apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+    authDomain: "capstone-a57ed.firebaseapp.com",
+    databaseURL: "https://capstone-a57ed.firebaseio.com",
+    projectId: "capstone-a57ed",
+    storageBucket: "capstone-a57ed.appspot.com",
+    messagingSenderId: "346183904314",
+    appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db= firebase.firestore();
+  db.settings = ({timestampsInSnapshots:true});
+</script>
 
+
+<script>
+    var msg_section= document.getElementById('users-message');
+
+function render(doc){
+let box= document.createElement('div');
+box.setAttribute('class', 'message');
+
+let fullName = document.createElement('div');
+fullName.setAttribute('class','writer-name');
+fullName.textContent =doc.data().name+" "+ doc.data().surname;
+
+let message=document.createElement('div');
+message.setAttribute('class', 'message-content');
+message.textContent= doc.data().message;
+
+let senderDate=document.createElement('div')
+senderDate.setAttribute('class', 'message-date');
+senderDate.textContent=doc.data().Time;
+
+box.appendChild(fullName);
+box.appendChild(senderDate);
+box.appendChild(message);
+
+msg_section.appendChild(box);
+}
+db.collection('message').orderBy("timestamp", "desc").get().then((snapshot)=>{
+snapshot.docs.forEach(doc => {
+  render(doc);
+});
+});
+</script>
 
    <script src="./js/nav.js"></script>
    <script src="./js/dashboard.js"></script>

@@ -125,12 +125,16 @@ li.burger{
 }
 
 .message{
-    display: flex;
+    /*display: flex;*/
     margin-left: 15px;
     margin-top: 20px;
-    padding: 12px 15px;
+   /* padding: 12px 15px;*/
     background-color: rgb(247, 230, 247);
-
+    
+}
+.message-content{
+    margin-top: 10px;
+    margin-left: 15px;
 }
 .writer-avatar img{
     height:50px;
@@ -143,10 +147,12 @@ li.burger{
 .writer-name{
     font-weight: 600;
     margin-bottom: 10px;
+    margin-left: 15px;
 }
 
 .message-date{
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .reply-btn{
