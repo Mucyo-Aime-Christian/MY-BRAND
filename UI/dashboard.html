@@ -4,14 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" typetype="text/css" href="./css/nav.css">
     <link rel="stylesheet" typetype="text/css" href="./css/dashboard.css">
@@ -28,11 +20,11 @@
                     <li class="burger-icon" onclick="dropNav()"><i class="fa fa-times"></i></li>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="login.html">Dash board</a></li>
-                    <li><a href="login.html">Logout</a></li>
-                    <li><a href="createBlog.html">Create blog</a></li>                    
+                    <li><a href="login.html">login</a></li>
+                    <li id="logged-in"><a href="login.html">Logout</a></li>
+                    <li class="logged-in"><a href="createBlog.html">Create blog</a></li>                    
                 </ul>
-                <div class="user-avatar"><img src="./images/pp.jpg" onclick="dropNav()"></div>
+                <div class="user-avatar"></div>
             </div>
 
         </nav>
@@ -75,12 +67,10 @@
                     <div class="profile-section">
                         <div class="profile-left">
                             <div class="profile-pic-section">
-                                <div class="profile-img">
-                                    <img src="./images/pp.jpg" alt="">
+                                <div class="profile-img" >
+                                   
                                 </div>
-                                <div class="select-img-btn">
-                                    <input type="file" name="picture" id="picture">
-                                </div>
+                                
                             </div>
 
                             <div class="skills">
@@ -100,44 +90,7 @@
                             <div class="right-title title">
                                 Pesonal Information
                             </div>
-                            <div class="info-section">
-                                <div class="info">
-                                    <div class="info-label">
-                                        Username:
-                                    </div>
-                                    <div class="info-value">
-                                        Mr Chris
-                                    </div>
-                                </div>
-
-                                <div class="info">
-                                    <div class="info-label">
-                                        Email:
-                                    </div>
-                                    <div class="info-value">
-                                        christianmucyo49@gmail.com
-                                    </div>
-                                </div>
-
-                                <div class="info">
-                                    <div class="info-label">
-                                        Phone:
-                                    </div>
-                                    <div class="info-value">
-                                        +250787805397
-                                    </div>
-                                </div>
-
-                                <div class="info">
-                                    <div class="info-label">
-                                        Address:
-                                    </div>
-                                    <div class="info-value">
-                                        Gasabo, Rwanda
-                                    </div>
-                                </div>
-
-                                
+                            <div class="info-section" id="info-section">
                             </div>
                             <div class="profile-edit-btn">
                                 <button onclick="display_item(3)">Edit</button>
@@ -181,163 +134,9 @@
                     Blogs
                 </div>
                 <div class="pane-item-content">
-                    <div class="blogs-area">
+                    <div class="blogs-area" id="blg">
 
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/beach.png" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                    life without beach vacation
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By H. Carlos 
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/wine.jpeg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                    Best wine in Rwanda
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By Mr Chris
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="blogs-area">
-
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/panda.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                    Panda in China
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By D. Lohan
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/forest.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                    Forest and nature
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By N. Bertin
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <div class="blogs-area">
-
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/user.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                    Life without software applications
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By N. James
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog">
-                            <div class="blog-img">
-                                <img src="./images/m-blog-5.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-title">
-                                   Ways to development
-                                </div>
-                                
-                                <div class="blog-info">
-                                    <div class="blog-author">
-                                        By N. joselyne
-                                    </div>
-                                    <div class="blog-date">
-                                        Feb 21, 2020
-                                    </div>
-                                </div>
-                                <div class="blog-btns">
-                                    <button class="view-btn">View</button>
-                                    <a href="edit-blog.html"><button class="edit-btn">Edit</button></a>
-                                    <button class="delete-btn">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
+                                           
                     </div>
                 </div>
             </div>
@@ -351,11 +150,12 @@
                    <div class="profile-section">
                         <div class="profile-left">
                             <div class="profile-pic-section">
-                                <div class="profile-img">
-                                    <img src="./images/robot.jpg" alt="">
+                                <div class="profile-img" id="profile_img">
+                                    
                                 </div>
                                 <div class="select-img-btn">
-                                    <input type="file" name="picture" id="picture">
+                                    <input type="file" name="picture" id="picture"><br/><br/>
+                                    <input type="submit" value="change image" id="pp_image">
                                 </div>
                             </div>
 
@@ -389,27 +189,29 @@
                             <div class="inputs-section">
                                 <div class="control">
                                     <label for="username">Username</label><br>
-                                    <input type="text" name="username" id="username">
+                                    <input type="text" name="username" class="name" id="username">
+                                    <h5 id="h">error_message</h5>
                                 </div>
 
                                 <div class="control">
                                     <label for="email">Email</label><br>
-                                    <input type="email" name="email" id="email">
+                                    <input type="email" name="email" class="email" id="email">
+                                    <h5 id="h">error_message</h5>
                                 </div>
 
                                 <div class="control">
                                     <label for="phone">Mobile phone</label><br>
-                                    <input type="text" name="phone" id="phone">
+                                    <input type="text" name="phone" class="phone" id="phone">
+                                    <h5 id="h">error_message</h5>
                                 </div>
 
                                 <div class="control">
-                                    <label for="password1">New Password</label><br>
-                                    <input type="password" name="password1" id="password1">
+                                    <label for="Address">Address</label><br>
+                                    <input type="text" name="address" class="address" id="Address">
+                                    <h5 id="h">error_message</h5>
                                 </div>
-
-                                <div class="control">
-                                    <label for="password2">Confirm Password</label><br>
-                                    <input type="password" name="password2" id="password2">
+                                <div class="save" id="save">
+                                    <button type="submit" id="profile_save" value="update">update</button>
                                 </div>
                             </div>
                         </div>
@@ -420,7 +222,13 @@
         </div>
    </section>
 
-   
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
 <script>
    var firebaseConfig = {
     apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
@@ -433,6 +241,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
   const db= firebase.firestore();
   db.settings = ({timestampsInSnapshots:true});
 </script>
@@ -467,10 +276,17 @@ db.collection('message').orderBy("timestamp", "desc").get().then((snapshot)=>{
 snapshot.docs.forEach(doc => {
   render(doc);
 });
+}).catch(err =>{
+    console.log(err.message);
 });
 </script>
-
-   <script src="./js/nav.js"></script>
-   <script src="./js/dashboard.js"></script>
-  </body>
-  </html> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="./js/admingetblogs.js"></script>
+<script src="./js/nav.js"></script>
+<!--<script src="./js/Fvalidation.js"></script>-->
+<script src="./js/updateprofile.js"></script>
+<script src="./js/dashboard.js"></script>
+<script src="./js/dashboardAuth.js"></script>
+<script src="./js/geolocation.js"></script>
+</body>
+</html> 

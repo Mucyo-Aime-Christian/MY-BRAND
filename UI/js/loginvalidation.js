@@ -1,5 +1,5 @@
-let bt = document.getElementById("form_wrapper");
-bt.onsubmit = validate;
+let bt = document.getElementById("input_submit");
+bt.onclick = validate;
 error_message.style.visibility='hidden';
 function validate(){
     var email = document.getElementById("login").value;
@@ -24,8 +24,6 @@ function validate(){
      
 
      else{
-      db.collection("message").add("{}");   
+      return true;   
      }
-      alert("Form Submitted Successfully!");
-      return true;
-     }
+    }

@@ -46,3 +46,17 @@ const removeError = (input)=>{
     input_error.classList ='col-75';
 }
 }
+
+ const validateImage = ()=> {
+    var file = document.getElementById("fileimage");
+    if (file.value==""){
+        alert("please select the image");
+        return false;
+    }
+    if (file.size > 1024000) {
+        alert('Max Upload size is 1MB only');
+        document.getElementById("fileimage").value = '';
+        return false;
+    }
+    return true;
+}

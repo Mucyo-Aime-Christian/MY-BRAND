@@ -7,7 +7,7 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
@@ -59,11 +59,12 @@ crossorigin="anonymous">
           };
           // Initialize Firebase
           firebase.initializeApp(firebaseConfig);
+          const auth = firebase.auth();
           const db= firebase.firestore();
           db.settings = ({timestampsInSnapshots:true});
         </script>
 
-
+<script src="./js/loginAuth.js"></script>
 <script src="./js/loginvalidation.js"></script>
 </body>
 
