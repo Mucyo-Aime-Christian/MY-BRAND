@@ -165,7 +165,7 @@ header{
     color: white;
   }
 
-main{
+#singleblog{
     background-color: rgba(255, 255, 255, 0.438);
     margin: 10px;
     border-radius: 14px;
@@ -179,6 +179,7 @@ main{
     min-height: 15vh;
     background-color:white;
     border-radius: 15px;
+    text-transform: uppercase;
 }
 .blogpost{
     min-height: 60vh;
@@ -316,32 +317,24 @@ main{
           text-align: left;
           padding-left: 100px;
       }
-      .comments{
-          background-color: rgba(165, 154, 154, 0.11);
+      .commentscontainer{
           display:flex;
           flex-flow: column;
           padding-bottom: 4px;
-          margin-bottom: 80px;
+          border: 1px solid black;
+          background-color:rgba(165, 154, 154, 0.11);
       }
-      .comments .comment{
-        background-color:rgba(165, 154, 154, 0.11);
-          padding-top: 10px;
-          padding-left: 5px;
-          margin-left: 50px;
-          border: 0px solid grey;
-          flex: 1;
-          margin-top: 5px;
-          min-height: 60px;
-          width:95%;
+      .cmt_img img{
+       border-radius: 50%;
+       height: 50px;
+       margin-left: 10px;
       }
-      .comment p{
-          padding-top:10px;
+     .cmt_top{
+          display: flex;
+          flex-direction: row;
       }
-      .comment h2{
-          font-size: 20px;
-      }
-      .comment h2, p, b{
-          color: gray;
+      .cmt_content{
+         margin-top: 5px; 
       }
       @media screen and (max-width: 900px) {
           .contact{
@@ -385,13 +378,6 @@ main{
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-        }
-        .comments{
-            padding:2px;
-        }
-        .comments .comment{
-            width:100%;
-            margin-left: 1px;
         }
     }
 

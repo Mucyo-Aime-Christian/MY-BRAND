@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
+
 <link rel="stylesheet" href="./css/blog.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -17,7 +27,7 @@
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="login.html">Dash Board</a></li>
+        <li><a href="dashboard.html">Dash Board</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#skills">Skills</a></li>
         <li><a href="index.html#contact">Contact</a></li>
@@ -37,39 +47,9 @@
             <button class="btn" onclick="document.location='index.html#contact'">Contact Me </button>
         </div>
     </header>
-    <main id="blogs">
-    <div class="post_1"><i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
-        <a href="blogdetails.html"><img src="./images/beach.jpg"  height="60%" width="100%"></a>
-      <h3>beach vacation</h3><br/>
-      <p style="font-size: medium;" id="words">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-      <img src="./images/like.png" width="9%"><a href="blogdetails.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
-    </div>
-    <div class="post_1">
-        <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
-        <a href="blogdetails2.html"><img src="./images/wine.jpg" height="60%" width="100%"></a>
-        <h3>best wine for life</h3><br/>
-    <p style="font-size: medium;" id="words">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><a href="blogdetails2.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
-    </div>
-    <div class="post_1">
-        <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
-        <a href="blogdetails3.html"><img src="./images/panda.jpg" height="60%" width="100%"></a>
-        <h3>fascinating panda</h3><br/>
-    <p style="font-size: medium;" id="words">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><a href="blogdetails3.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
-    </div>
-    <div class="post_1">
-        <i class="fa fa-calendar"></i><span style="font-size:small;">October 20,2020</span>
-        <a href="blogdetails4.html"><img src="./images/m-blog-2.jpg"  height="60%" width="100%"></a>
-        <h3>tropical forest exists</h3><br/>
-    <p style="font-size: medium;" id="words">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Voluptas quos neque ducimus voluptatem enim modi excepturi sed </p>
-    <img src="./images/like.png" width="9%"><a href="blogdetails4.html#comments"><img src="./images/comment.png" width="9%" align="right"></a>
-    </div>
-    </main>
+    <section id="blogs">
+    
+</section>
     <footer>
         <div class="footer1">
             <div class="top">
@@ -135,17 +115,23 @@ const smail = document.querySelector('#email');
 
 
 </script>
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-
-<script src="./js/firebaseconfig.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script>
+var firebaseConfig = {
+    apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+    authDomain: "capstone-a57ed.firebaseapp.com",
+    databaseURL: "https://capstone-a57ed.firebaseio.com",
+    projectId: "capstone-a57ed",
+    storageBucket: "capstone-a57ed.appspot.com",
+    messagingSenderId: "346183904314",
+    appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db= firebase.firestore();
+  db.settings = ({timestampsInSnapshots:true});
+</script>
+<script src="./js/allblogs.js"></script>
 <script src="./js/Fvalidation.js"></script>
 <script src="./js/landing.js"></script>
 </body>

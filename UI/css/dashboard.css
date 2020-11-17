@@ -24,14 +24,17 @@ body{
     align-items: stretch;
     min-height:85vh;
 }
-
-.user-avatar img{
+.user-avatar{
     height: 30px;
+    width: 30px;
     border-radius: 50%;
-    display: inline-block;
+    overflow: hidden;
     margin-left: 8px;
     margin-top: -6px;
-    
+    display: inline-block;
+}
+.user-avatar img{
+    height: 100%;
 }
 
 .right-pane{
@@ -177,11 +180,12 @@ li.burger{
 
 .blogs-area{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .blog{
     display: flex;
-    flex-basis: 49%;
+    flex-basis: 47%;
     margin: 10px;
 }
 
@@ -498,3 +502,19 @@ ul.selected-skills{
     }
     
 }
+
+body{
+    --error-color: #e74c3c;
+}
+.control h5{
+    font-size: .8rem;
+    color: var(--error-color);
+    visibility: hidden;
+  }
+   .error input {
+    border-color: var(--error-color);
+  }
+ .error h5{
+   /* visibility: visible;*/
+    color:var(--error-color);
+  }

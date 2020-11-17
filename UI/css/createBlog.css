@@ -41,7 +41,10 @@ body{
     
 }
 
-
+.input-field h5{
+    visibility: hidden;
+    color: red;
+}
 .file-input{
     margin-bottom: 10px;
 }
@@ -149,3 +152,20 @@ input.title{
         position: relative;
     }
 }
+body{
+    --error-color: #e74c3c;
+}
+.col-75 h5{
+    font-size: .8rem;
+    color: var(--error-color);
+    visibility: hidden;
+  }
+   .error input {
+    border-color: var(--error-color);
+  }
+  .error > textarea{
+   border-color:var(--error-color)  !important;
+ }
+ .error h5{
+    visibility: visible;
+  }

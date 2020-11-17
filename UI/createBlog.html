@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
+ 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" typetype="text/css" href="./css/nav.css">
     <link rel="stylesheet" typetype="text/css" href="./css/createBlog.css">
@@ -22,10 +23,10 @@
                     <li class="burger-icon" onclick="dropNav()"><i class="fa fa-bars"></i></li>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="login.html">Dash board</a></li>
+                    <li><a href="dashboard.html">Dash board</a></li>
                     <li><a href="login.html">Logout</a></li>
-                    <li><a href="createBlog.html">Create blog</a></li>
-                    <li><a href="edit-blog.html">Edit blog</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="dashboard.html#blg">Edit blog</a></li>
                                         
                 </ul>
                 <div class="user-avatar"><img src="./images/pp.jpg" onclick="dropNav()"></div>
@@ -37,21 +38,29 @@
    <section id="form-container">
     <div class="form">
        
-        <form action="#" name="create-blog-form" class="form-controls">
+        <form action="#" name="create-blog-form" class="form-controls" id="blogform">
             <div class="form-title">
                 Create blog
             </div>
-
+            <div class="input-field create-field" >
             <label for="title">Title</label><br>
-            <input type="text" name="title" class="title"><br>
+            <input type="text" name="title" class="title" id="title"><br>
+            <h5 id="h">error_message</h5>
+            </div>
 
+            <div class="input-field create-field" >
             <label for="description">Description</label><br>
-            <textarea name="description" id="" cols="100" rows="10"></textarea><br>
+            <textarea name="description" id="description" cols="100" rows="10"></textarea><br>
+            <h5 id="h">error_message</h5>
+            </div>
 
+            <div class="input-field create-field" >
             <label for="blog_picture"></label><br>
-            <input type="file" name="blog_picture" class="file-input"><br>
+            <input type="file" accept="image/*" class="file-input" id="fileimage"><br>
+            <h5 id="h">error_message</h5>
+            </div>
 
-            <div class="button-left"><button class="create-button">Create</button></div>
+            <div class="button-left"><button type="submit" class="create-button"  id="create">Create</button></div>
 
 
         </form>
@@ -63,7 +72,30 @@
     <p>Copyright &copy; 2020 All rights reserved, Mr Chris</p>
   </section>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>     
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
 
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDvuxubcPFkOMIoRiyBokOWj4XJuRSOvKU",
+    authDomain: "capstone-a57ed.firebaseapp.com",
+    databaseURL: "https://capstone-a57ed.firebaseio.com",
+    projectId: "capstone-a57ed",
+    storageBucket: "capstone-a57ed.appspot.com",
+    messagingSenderId: "346183904314",
+    appId: "1:346183904314:web:61d1e4b388e190f7e2d903"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db= firebase.firestore();
+  db.settings = ({timestampsInSnapshots:true});
+</script>
+   <script src="./js/Fvalidation.js"></script>
+   <script src="./js/uploadblogs.js"></script>
    <script src="./js/nav.js"></script>
   </body>
   </html> 
