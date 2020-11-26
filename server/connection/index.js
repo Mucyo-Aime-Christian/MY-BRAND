@@ -1,12 +1,13 @@
-var express = require("express");
-const mongoose = require("mongoose"); 
-const queryRoutes = require("../routes/routequeries");
-const commentRoutes = require("../routes/routeComments");
-const blogRoutes = require("../routes/routeBlogs")
-const userRoutes = require("../routes/RoutesUser");
+import express from "express";
+import mongoose from "mongoose";
+import queryRoutes from "../routes/routequeries";
+import commentRoutes from "../routes/routeComments";
+import blogRoutes from "../routes/routeBlogs";
+import userRoutes from "../routes/RoutesUser";
 
 const app = express();
-require('dotenv').config();
+import {config} from "dotenv"; 
+config()
 mongoose
 	.connect("mongodb://localhost:27017/MY-BRAND", 
 	{ 

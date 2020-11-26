@@ -1,4 +1,4 @@
-class Response {
+export class Response {
   static success(res, status,msg, data) {
     res.status(status).json({
       msg,
@@ -12,4 +12,3 @@ class Response {
     });
   }
 }
-module.exports = Response;

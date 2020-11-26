@@ -1,6 +1,3 @@
-const { config } = require("dotenv");
+import { config } from "dotenv";
 config();
-
-module.exports = {
-JWT_KEY: process.env.JWT_KEY,
-};
+export const JWT_KEY = process.env.JWT_KEY

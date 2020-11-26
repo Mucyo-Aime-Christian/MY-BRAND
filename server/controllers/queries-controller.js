@@ -1,12 +1,13 @@
-const Query = require("../models/queries");
-const Response = require("../helpers/response");
+import Query from "../models/queries";
+import {Response} from "../helpers/response";
 
-class QueryController {
+export class QueryController {
   static async getQueries(req, res) {
     try {
       const queries = await Query.find();
       Response.success(res, 200, "Queries fetched successfully", queries);
     } catch (err) {
+      console.log("ooooooo")
       Response.error(res, 500, err.message);
     }
   }
@@ -16,7 +17,7 @@ class QueryController {
       const queries = await Query.findOne({_id: req.params.id});
    		Response.success(res, 200,"Query fetched successfully", queries);
     } catch (err) {
-      Response.error(res, 500, err.message); 
+      Response.error(res, 500, err.message);  
     }
   }
 
@@ -33,5 +34,3 @@ class QueryController {
     }
   }
 }
-
-module.exports = QueryController;

@@ -1,18 +1,39 @@
-const { Router } = require ('express');
-const  { createAccount, login, getUsers, deleteUser, updateProfilePicture } =require ('../controllers/usercontroller');
-const base_Validator = require("../middleware/validation-middleware");
-const upload = require("../set-up/multer");
-const  {checkAdmin} = require("../middleware/admin");
+import { Router } from  "express";
+import  {usercontroller} from '../controllers/usercontroller';
+import {baseValidator} from "../middleware/validation-middleware";
+import {upload} from "../set-up/multer";
+import  {loggeduserandadmin} from "../middleware/admin";
 const router = Router();
 
-router.post('/signUp',base_Validator.createuserDataValidate, createAccount);
+router.post(
+    '/signUp',
+    baseValidator.createuserDataValidate, 
+    usercontroller.createAccount
+    );
 
-router.post('/login',base_Validator.createuserDataValidate, login);
+router.post(
+    '/login',
+    baseValidator.createuserDataValidate, 
+    usercontroller.login
+    );
 
-router.get('/getUsers', checkAdmin, getUsers);
+router.get(
+    '/Users', 
+    loggeduserandadmin.checkAdmin, 
+    usercontroller.getUsers
+    );
 
-router.put("/updateProfile/:id", checkAdmin, upload.single("profileImage"), updateProfilePicture);
+router.put(
+    "/updateProfile/:id", 
+    loggeduserandadmin.checkAdmin, 
+    upload.single("profileImage"), 
+    usercontroller.updateProfilePicture
+    );
 
-router.delete('/deleteUser/:id', checkAdmin, deleteUser);
+router.delete(
+    '/deleteUser/:id', 
+    loggeduserandadmin.checkAdmin, 
+    usercontroller.deleteUser
+    );
 
-module.exports= router;
+export default router;

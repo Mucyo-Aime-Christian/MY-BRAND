@@ -1,8 +1,15 @@
-const config = require('../set-up/env')
- const jwt = require('jsonwebtoken');
- 
-const signToken = (data) => {
-    const JWTKEY = config.JWT_KEY;
+import jwt from "jsonwebtoken";
+//import {config} from "../set-up/env";
+
+//*****************************
+import { config } from "dotenv";
+config();
+//export const JWT_KEY = process.env.JWT_KEY
+//
+
+export const signToken = (data) => {
+    const JWTKEY = process.env.JWT_KEY;
+    //const JWTKEY = config.JWT_KEY;
     const { email, _id, role } = data;
     try {
         const token= jwt.sign(
@@ -17,4 +24,3 @@ const signToken = (data) => {
         throw new Error('No token');
     }
 };
-module.exports = signToken;

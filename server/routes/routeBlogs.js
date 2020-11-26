@@ -1,14 +1,41 @@
-const express = require("express");
-const BlogCtler = require("../controllers/blogsController");
-const upload = require("../set-up/multer");
-const base_Validator = require("../middleware/validation-middleware");
+import express from "express";
+import {BlogsController} from "../controllers/blogsController";
+import {upload} from "../set-up/multer";
+import {baseValidator} from "../middleware/validation-middleware";
+import {loggeduserandadmin} from "../middleware/admin";
 const router = express.Router();
-const {checkAdmin} = require("../middleware/admin");
 
-router.get("/", BlogCtler.fetchAllBlogs);
-router.get("/:id", BlogCtler.fetchSingleBlog);
-router.post("/", checkAdmin, upload.single("blogImage"), base_Validator.blogvalidation, BlogCtler.createBlogs);
-router.put("/:id", checkAdmin, upload.single("blogImage"),base_Validator.blogvalidation, BlogCtler.updateBlog);
-router.delete("/:id", checkAdmin, BlogCtler.deleteBlog);
 
-module.exports = router; 
+router.get(
+    "/", 
+    BlogsController.fetchAllBlogs
+    );
+
+router.get(
+    "/:id", 
+    BlogsController.fetchSingleBlog
+    );
+
+router.post(
+    "/", 
+    loggeduserandadmin.checkAdmin, 
+    upload.single("blogImage"), 
+    baseValidator.blogvalidation, 
+    BlogsController.createBlogs
+    );
+
+router.put(
+    "/:id", 
+    loggeduserandadmin.checkAdmin, 
+    upload.single("blogImage"),
+    baseValidator.blogvalidation, 
+    BlogsController.updateBlog
+    );
+
+router.delete(
+    "/:id", 
+    loggeduserandadmin.checkAdmin, 
+    BlogsController.deleteBlog
+    );
+
+export default router; 

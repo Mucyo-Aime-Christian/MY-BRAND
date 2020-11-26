@@ -1,8 +1,7 @@
-const Response = require("../helpers/response");
-const Blog = require("../models/blogmodels");
-const User = require("../models/userauth");
+import { Response } from "../helpers/response";
+import User from "../models/userauth";
 
- class findings {
+ export class findings {
   static async findById(req, res) {
     try {
       const result = await User.findById(req.params.id);
@@ -21,5 +20,3 @@ const User = require("../models/userauth");
     }
   }
 }
-
-module.exports = findings;

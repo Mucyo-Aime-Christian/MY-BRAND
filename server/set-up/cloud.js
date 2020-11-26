@@ -1,11 +1,12 @@
-const cloudinary = require('cloudinary').v2;
-const Response = require('../helpers/response');
+import { v2 as cloudinary } from "cloudinary";
+import {Response} from "../helpers/response";
+
 cloudinary.config({
     cloud_name:'mucyo',
     api_key:'469891183823114',
     api_secret:'nzEyftYsreLNX7KDxdDqYnq6CDc',
 });
-const uploadToCloud = async (file, res) => {
+export const uploadToCloud = async (file, res) => {
   try {
     const image = await cloudinary.uploader.upload(file.path, {
       folder: "MY-BRAND",
@@ -16,5 +17,3 @@ const uploadToCloud = async (file, res) => {
     return Response.error(res, 500, error);
   }
 };
-
-module.exports = uploadToCloud;

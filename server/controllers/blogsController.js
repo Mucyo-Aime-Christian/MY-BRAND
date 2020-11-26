@@ -1,10 +1,9 @@
-const Blog = require("../models/blogmodels");
-const Response = require("../helpers/response");
-const Comment = require("../models/commentsModel");
-const uploadToCloud = require("../set-up/cloud");
+import Blog from "../models/blogmodels";
+import {Response} from "../helpers/response";
+import Comment from "../models/commentsModel";
+import {uploadToCloud} from "../set-up/cloud";
 
-
-class BlogsController {
+export class BlogsController {
   static async fetchAllBlogs(req, res) {
     try {
       const blogs = await Blog.find();
@@ -112,5 +111,3 @@ class BlogsController {
     }
   }
 }
-
-module.exports = BlogsController;

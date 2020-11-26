@@ -1,13 +1,13 @@
-const { verify } = require ('jsonwebtoken');
-const config =require ('../set-up/env');
+import { verify } from "jsonwebtoken";
+import config from "../set-up/env"
+import {JWT_KEY} from "../set-up/env"
+//const JWTKEY = config.JWT_KEY;
 
-const JWTKEY = config.JWT_KEY;
-const jwt = require("jsonwebtoken");
-const env = require("../set-up/env");
-const Response = require("../helpers/response");
+import jwt from "jsonwebtoken";
+import env from "../set-up/env";
+import {Response} from "../helpers/response";
 
-
-class loggeduserandadmin{
+export class loggeduserandadmin{
 static  loggedUser (req, res, next)  {
     const header = req.header('auth-token');
     
@@ -29,13 +29,13 @@ static  checkAdmin (req, res, next)  {
     if (!token)
       return Response.error(res, 401, "Access denied. no token provided ");
     try {
-      const decode = jwt.verify(token, env.JWT_KEY);
+      const decode = jwt.verify(token, JWT_KEY);
       console.log(decode)
       req.user = decode;
      return next();
     } catch (error) {
+      console.log(error)
       return Response.error(res, 401, "Invalid token.");
     }
 }
 }
-module.exports = loggeduserandadmin;

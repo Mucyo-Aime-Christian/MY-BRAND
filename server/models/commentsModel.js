@@ -1,5 +1,4 @@
-const { string } = require("joi");
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const commentSchema = mongoose.Schema({
   Name: {type: String, required:true},
@@ -7,5 +6,4 @@ const commentSchema = mongoose.Schema({
   comment: { type: String, required: true},
   Time: { type: Date, default: Date.now},
 });
-
-module.exports = mongoose.model("Comment", commentSchema);
+export default mongoose.model("Comment", commentSchema);

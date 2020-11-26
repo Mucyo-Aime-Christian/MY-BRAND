@@ -1,7 +1,8 @@
-const Joi = require("joi");
-const base_response = require("../helpers/base_response");
+import Joi from "joi";
+import {base_response} from "../helpers/base_response";
 
-class baseValidator {
+
+export class baseValidator {
   static queryvalidation(req, res, next) {
     const schema = Joi.object({
       First_Name: Joi.string().min(3).max(30).required(),
@@ -48,5 +49,3 @@ class baseValidator {
     base_response(req, res, schema, next);
   }
 }
-
-module.exports = baseValidator;

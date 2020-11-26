@@ -1,6 +1,6 @@
-const Response = require("./response");
+import { Response } from "./response";
 
-const base_response = (req, res, schema, next) => {
+export const base_response = (req, res, schema, next) => {
   const { error } = schema.validate(req.body);
   if (error)
     return Response.error(
@@ -10,5 +10,3 @@ const base_response = (req, res, schema, next) => {
     );
   next();
 };
-
-module.exports = base_response;

@@ -1,11 +1,11 @@
-const express = require("express");
-const base_validator = require("../middleware/validation-middleware")
-const queryctrler = require("../controllers/queries-controller");
-const  {checkAdmin}  = require("../middleware/admin");
+import express from "express";
+import {baseValidator} from "../middleware/validation-middleware"
+import {QueryController} from "../controllers/queries-controller";
+import  {loggeduserandadmin}  from "../middleware/admin";
 const router = express.Router();
 
-router.post("/", base_validator.queryvalidation, queryctrler.createQueries);
-router.get("/",checkAdmin,  queryctrler.getQueries);
-router.get("/:id",checkAdmin, queryctrler.getSingleQuery);
+router.post("/", baseValidator.queryvalidation, QueryController.createQueries);
+router.get("/",loggeduserandadmin.checkAdmin,  QueryController.getQueries);
+router.get("/:id",loggeduserandadmin.checkAdmin, QueryController.getSingleQuery);
 
-module.exports = router;
+export default router;
