@@ -1,10 +1,7 @@
 import { verify } from "jsonwebtoken";
-import config from "../set-up/env"
 import {JWT_KEY} from "../set-up/env"
-//const JWTKEY = config.JWT_KEY;
 
 import jwt from "jsonwebtoken";
-import env from "../set-up/env";
 import {Response} from "../helpers/response";
 
 export class loggeduserandadmin{
