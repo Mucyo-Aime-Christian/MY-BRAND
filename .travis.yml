@@ -3,8 +3,7 @@ sudo: false
 language: node_js
 
 env:
-  global:
-  - NODE_ENV=test
+ - MONGO_URI_TEST=mongodb://localhost/MY-BRAND-test
 
 node_js:
   - "stable"
