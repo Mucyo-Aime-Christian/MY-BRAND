@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node babel-node ./src",
     "dev": "nodemon --exec babel-node ./src/connection/index.js",
-    "test": "NODE_ENV=test mocha --timeout 80000 ./src/tests/**.test.js --require @babel/register --exit",
+    "test": "NODE_ENV=test mocha  --timeout 80000 ./src/tests/**.test.js --require @babel/register --exit",
     "coverage": "nyc npm test",
     "coveralls":"nyc report --reporter=text-lcov | coveralls"
   },
