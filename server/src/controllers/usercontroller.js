@@ -4,6 +4,7 @@ import { signToken } from "../helpers/signToken";
 import { Response } from "../helpers/response";
 import { uploadToCloud } from "../set-up/cloud";
 import bcrypt from "bcrypt";
+import { verify } from "jsonwebtoken";
 
 
 export class usercontroller{
@@ -22,7 +23,7 @@ export class usercontroller{
             _id: user.id,
             email: user.email, 
             password: newPassword
-        });
+        }); 
         return Response.success(res, 201, "User sucessfully created", {newUser, newPassword});
         
     } catch (err) {
@@ -34,7 +35,6 @@ static async login (req, res) {
     try {
         const user = { email: req.body.email, password: req.body.password }
         const verifyUser = await findings.findOne(req, res)
-
         if (!verifyUser) return Response.error(res, 400, "Invalid email or password");
         const verifyPassword = await bcrypt.compare(
           user.password,
@@ -45,7 +45,6 @@ static async login (req, res) {
         const { _id, email } = verifyUser;
         return Response.success(res, 200, "sucessfully logged in", {User: {_id, email}, token});
     } catch (error) {
-      console.log(error)
        return Response.error(res, 500, "Something went wrong"); 
     }
 };
@@ -53,7 +52,7 @@ static async login (req, res) {
 static async getUsers (req, res)  {
     try {
         const users = await User.find();
-        Response.success(res, 200, "successfully retrieved users",({users: users}) );
+       return Response.success(res, 200, "successfully retrieved users",({users: users}) );
         
     } catch (error) {
       return  Response.error(res, 500, "Something went wrong");
@@ -66,7 +65,7 @@ static async deleteUser(req, res)  {
             if (deletedUser === null)
              return Response.error(res, 404, "user not found");
             
-            Response.success(res, 200, "successfully deleted user",deletedUser );
+          return  Response.success(res, 200, "successfully deleted user",deletedUser );
             
          } catch (error) {
        return Response.error(res, 500, "Something went wrong");

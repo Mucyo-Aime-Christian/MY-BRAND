@@ -1,0 +1,6 @@
+{
+    "all": true, 
+    "including": [ "/src/*/**.js" ], 
+    "excluding": [ ],
+    "skip-full":true
+}

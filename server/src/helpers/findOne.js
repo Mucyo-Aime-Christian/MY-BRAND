@@ -13,7 +13,7 @@ import User from "../models/userauth";
 
   static async findOne(req, res) {
     try {
-      const founduser = await User.findOne({ email: req.body.email });
+      const founduser = await User.findOne({email: req.body.email });
       return founduser;
     } catch (error) {
       return Response.error(res, 500, "Something went wrong!");

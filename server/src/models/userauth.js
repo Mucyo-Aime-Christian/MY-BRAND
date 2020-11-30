@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 const usersCollectionSchema = mongoose.Schema({
     email: {
         type: String,
-        unique: true,
-        required: true
+       unique: true,
+       required: true,
+       trim: true
     },
     password: {
         type: String,

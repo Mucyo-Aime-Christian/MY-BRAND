@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-
+import {Response} from "../helpers/response";
 import { config } from "dotenv";
 config();
 
@@ -15,7 +15,6 @@ export const signToken = (data) => {
         return token;
     }
     catch (error) {
-        console.log(error)
-        throw new Error('No token');
+    throw new Error('No token');
     }
 };

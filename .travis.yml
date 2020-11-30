@@ -1,0 +1,28 @@
+sudo: false
+
+language: node_js
+
+env:
+  global:
+  - NODE_ENV=test
+
+node_js:
+  - "stable"
+
+services:
+  - mongodb
+
+cache:
+  npm: false
+
+notifications:
+  email: false
+
+script:
+  - cd server/
+  - npm ci
+  - npm test
+  - npm run coverage
+
+after_success:
+  - npm run coveralls

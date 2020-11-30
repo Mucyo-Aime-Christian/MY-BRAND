@@ -9,7 +9,7 @@ export class BlogsController {
       const blogs = await Blog.find();
       Response.success(res, 200, "blogs fetched successfully", blogs);
     } catch (error) {
-      Response.error(res, 500, error);
+    return  Response.error(res, 500, error);
     }
   }
 
@@ -26,7 +26,7 @@ export class BlogsController {
       });
       Response.success(res, 201, "you created a blog successfully", blog);
     } catch (error) {
-      Response.error(res, 500, "blog not created");
+     return Response.error(res, 500, "blog not created");
     }
   }
 
@@ -40,7 +40,7 @@ export class BlogsController {
       if (blog === null) return Response.error(res, 404, "Blog does not exist");
       return Response.success(res, 200, "Blog fetched successfully", blog);
     } catch (error) {
-      Response.error(res, 404, "Blog not fetched");
+     return Response.error(res, 404, "Blog not fetched");
     }
   }
 
@@ -58,7 +58,7 @@ export class BlogsController {
          { new: true }
       );
       if (update=== null)
-        return Response.error(res, 404, "blog not fetched");
+        return Response.error(res, 404, "blog not fetched"); 
       return Response.success(res, 200, "Sucessfully Updated the blog",update );
     } catch (error) {
       return Response.error(res, 404, "blog not updated");
@@ -105,9 +105,9 @@ export class BlogsController {
   static async fetchAllcomments(req, res) {
     try {
       const comment = await Comment.find();
-      Response.success(res, 200, "comments fetched successfully", comment);
+     return Response.success(res, 200, "comments fetched successfully", comment);
     } catch (error) {
-      Response.error(res, 500, "comments not fetched");
+     return Response.error(res, 500, "comments not fetched");
     }
   }
 }

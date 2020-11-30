@@ -9,7 +9,7 @@ export class baseValidator {
       Last_Name: Joi.string().min(3).max(30).required(),
       message: Joi.string().min(10).max(300).required(),
     });
-    base_response(req, res, schema, next);
+    return base_response(req, res, schema, next);
     
   }
 
@@ -19,7 +19,7 @@ export class baseValidator {
       Email: Joi.string().email().required(),
       comment: Joi.string().min(2).max(300).required(),
     });
-    base_response(req, res, schema, next);
+   return base_response(req, res, schema, next);
   
    }
 
@@ -29,7 +29,7 @@ export class baseValidator {
       title: Joi.string().min(10).max(40).required(),
       description: Joi.string().min(10).required(),
     });
-   base_response(req, res, schema, next);
+  return base_response(req, res, schema, next);
     
   }
 
@@ -38,14 +38,14 @@ export class baseValidator {
       email: Joi.string().email().required(),
       password: Joi.string().min(6).max(20).required(),
     });
-    base_response(req, res, schema, next);
+   return base_response(req, res, schema, next);
   }
 
   static userLoginValidate(req, res, next) {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
+      email: Joi.string().min(8).email().required(),
       password: Joi.string().min(6).max(20).required(),
     });
-    base_response(req, res, schema, next);
+   return base_response(req, res, schema, next);
   }
 }
