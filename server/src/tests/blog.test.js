@@ -5,9 +5,9 @@ import mockData from "../tests/testData";
 import jwt from "jsonwebtoken";
 import app from "../connection/index";
 import Blog from "../models/blogmodels";
-import {JWT_KEY } from "../set-up/env";
+//import {JWT_KEY } from "../set-up/env";
 import fs from "fs";
-
+const JWT_KEY = process.env.JWT_KEY
 const token= jwt.sign(
             mockData.logInvalid,
            JWT_KEY,
