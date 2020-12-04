@@ -1,7 +1,7 @@
 import mocha from "mocha";
 import chai from "chai";
 import chaihttp from "chai-http";
-import app from "../connection/index";
+import app from "../index";
 
 chai.use(chaihttp);
 const {it, describe} = mocha;
