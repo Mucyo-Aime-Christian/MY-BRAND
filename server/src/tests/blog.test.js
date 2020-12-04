@@ -3,7 +3,7 @@ import chai from "chai";
 import chaihttp from "chai-http";
 import mockData from "../tests/testData";
 import jwt from "jsonwebtoken";
-import app from "../connection/index";
+import app from "../index";
 import Blog from "../models/blogmodels";
 //import {JWT_KEY } from "../set-up/env";
 import fs from "fs";
