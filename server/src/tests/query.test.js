@@ -3,7 +3,7 @@ import chai, { expect } from "chai";
 import chaihttp from "chai-http";
 import mockData from "../tests/testData";
 import jwt from "jsonwebtoken";
-import app from "../connection/index";
+import app from "../index";
 import Query from "../models/queries";
 import {JWT_KEY } from "../set-up/env";
 

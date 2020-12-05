@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node babel-node ./src",
-    "dev": "nodemon --exec babel-node ./src/connection/index.js",
+    "start": "babel-node ./src/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js",
     "test": "NODE_ENV=test mocha  --timeout 80000 ./src/tests/**.test.js --require @babel/register --exit",
     "coverage": "nyc npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"

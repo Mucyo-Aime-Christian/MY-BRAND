@@ -2,7 +2,7 @@ import mocha from "mocha";
 import chai from "chai";
 import chaihttp from "chai-http";
 import mockData from "../tests/testData";
-import app from "../connection/index";
+import app from "../index";
 import User from "../models/userauth";
 
  chai.use(chaihttp);
