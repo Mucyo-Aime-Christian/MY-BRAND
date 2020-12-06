@@ -2,17 +2,9 @@ import mocha from "mocha";
 import chai from "chai";
 import chaihttp from "chai-http";
 import mockData from "../tests/testData";
-import jwt from "jsonwebtoken";
 import app from "../index";
-import {JWT_KEY } from "../set-up/env";
-import {findings} from "../helpers/findOne";
 import User from "../models/userauth";
 
-const token= jwt.sign(
-            mockData.logInvalid,
-           JWT_KEY,
-            { expiresIn: '1d' }
-        );
  chai.use(chaihttp);
  chai.should();
  const { it, describe, beforeEach , afterEach} = mocha;

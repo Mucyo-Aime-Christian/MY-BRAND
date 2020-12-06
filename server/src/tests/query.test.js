@@ -1,5 +1,5 @@
 import mocha from "mocha";
-import chai from "chai";
+import chai, { expect } from "chai";
 import chaihttp from "chai-http";
 import mockData from "../tests/testData";
 import jwt from "jsonwebtoken";

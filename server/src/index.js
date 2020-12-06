@@ -6,6 +6,7 @@ import commentRoutes from "./routes/routeComments";
 import blogRoutes from "./routes/routeBlogs";
 import userRoutes from "./routes/RoutesUser";
 import {DATABASE_URL, PORT} from "./set-up/env"
+import { setUpSwaggerUi } from './swagger';
 
 const app = express();
 import {config} from "dotenv"; 
@@ -34,6 +35,7 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/users", userRoutes);
 app.use(express.urlencoded({ extended: false }));
+setUpSwaggerUi(app);
 
 app.use("*", (req,res)=>{
 	res.status(404).json({message:"Route not found"}); 
