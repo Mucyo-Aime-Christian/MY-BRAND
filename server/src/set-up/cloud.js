@@ -6,6 +6,9 @@ cloudinary.config({
     api_key:'469891183823114',
     api_secret:'nzEyftYsreLNX7KDxdDqYnq6CDc',
 });
+
+export default cloudinary.uploader;
+
 export const uploadToCloud = async (file, res) => {
   try {
     const image = await cloudinary.uploader.upload(file.path, {

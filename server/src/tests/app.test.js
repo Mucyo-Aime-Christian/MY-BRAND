@@ -2,10 +2,16 @@ import mocha from "mocha";
 import chai from "chai";
 import chaihttp from "chai-http";
 import app from "../index";
+import { stub } from "sinon";
+import uploader from "../set-up/cloud";
+
 
 chai.use(chaihttp);
 const {it, describe} = mocha;
 chai.should();
+
+const image = "http://res.cloudinary.com/mucyo/image/upload/v1606143286/MY-BRAND/a88eb3277c6a3eed1779b6479a86e436_xfanag.jpg";
+stub(uploader, "upload").resolves({ url: image });
 
 describe("App test:", ()=>{
     it("should display a not found message", async ()=>{
