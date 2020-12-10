@@ -24,4 +24,8 @@ describe("App test:", ()=>{
     const response = await chai.request(app).get("/api-docs");
     response.should.have.status(200);
   });
+  it("should not  display a swagger documentation UI", async () => {
+    const response = await chai.request(app).get("/mucyo");
+    response.should.have.status(404);
+  });
 });

@@ -62,6 +62,26 @@ it("Should not post a blog when no token provied ", async () => {
                     response.body.should.have.property('error');
             });
 
+ it("Should not post a blog when  token provied is invalid", async () => {
+                const response = await chai
+                .request(app)
+                .post("/api/blogs")
+                .set("Authorization", "hhhh")
+                .field({
+                    title: mockData.blogsData.title,
+                    description: mockData.blogsData.description,
+                })
+                .attach(
+                    "blogImage",
+                    fs.readFileSync("src/tests/file/tree.jpg"),
+                    "tree.jpg"
+                );
+                    response.should.have.status(401);
+                    response.body.should.be.a('object');
+                    response.body.should.have.property('error');
+            });
+
+
 it("Should show a list of blogs", async () => {
             await chai
             .request(app)
@@ -150,4 +170,29 @@ it("should add a comment on a blog", async () => {
       response.should.have.status(201);
       response.body.should.have.property("msg");
      });
+
+it("It should DELETE a blog by ID", async () => {
+                const blogresponse = await chai
+                .request(app)
+                .post("/api/blogs")
+                .set("Authorization", token)
+                .field({
+                    title: mockData.blogsData.title,
+                    description: mockData.blogsData.description,
+                })
+                .attach(
+                    "blogImage",
+                    fs.readFileSync("src/tests/file/tree.jpg"),
+                    "treet.jpg"
+                );
+                const response = await chai
+                .request(app)                
+                .delete(`/api/blogs/${blogresponse.body.data._id}`)
+                .set("Authorization", token)
+                    response.should.have.status(200);
+                    response.body.should.be.a('object');
+                    response.body.should.have.property('msg');
+                    response.body.should.have.property('msg');
+                });
+
      });
