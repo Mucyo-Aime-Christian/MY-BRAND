@@ -48,4 +48,11 @@ export class baseValidator {
     });
    return base_response(req, res, schema, next);
   }
+  static updateblogValidate(req, res, next) {
+    const schema = Joi.object({
+      title: Joi.string().min(5).max(25),
+      description: Joi.string().min(10),
+    });
+    return base_response(req, res, schema, next);
+  }
 }

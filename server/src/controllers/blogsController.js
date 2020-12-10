@@ -2,6 +2,7 @@ import Blog from "../models/blogmodels";
 import {Response} from "../helpers/response";
 import Comment from "../models/commentsModel";
 import {uploadToCloud} from "../set-up/cloud";
+import {findings} from "../helpers/findOne"
 
 export class BlogsController {
   static async fetchAllBlogs(req, res) {
@@ -49,19 +50,18 @@ export class BlogsController {
     try {
       const image = await uploadToCloud(req.file, res);
       const update= await Blog.findOneAndUpdate(
-        req.params.id,
+          {_id: req.params.id} ,
         {
           title: req.body.title,
           description: req.body.description,
           blogImage: image.url,
-        },
-         { new: true }
+       },
+         { new: true,}
       );
-      if (update=== null)
-        return Response.error(res, 404, "blog not fetched"); 
-      return Response.success(res, 200, "Sucessfully Updated the blog",update );
+      if (!update)  return Response.error(res, 404, "Blog not found"); 
+       return Response.success(res, 200, "Sucessfully Updated the blog",update );
     } catch (error) {
-      return Response.error(res, 404, "blog not updated");
+      return Response.error(res, 500, "blog not updated");
     }
   }
 
@@ -82,11 +82,8 @@ export class BlogsController {
   }
 
   static async addComment(req, res) {
-    const blogId = req.params.id;
-    if (!blogId) return Response.error(res, 400, "Blog Id required");
-    const blog = await Blog.findById(blogId);
-    if (!blog) return Response.success(res, 404, "Blog Not Fetched");
-    try {
+    try{
+    const blog = await findings.findBlogById(req, res);
       const comment = new Comment(
         { 
           Name: req.body.Name,
