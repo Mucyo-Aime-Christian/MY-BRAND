@@ -81,6 +81,24 @@ it("Should not post a blog when no token provied ", async () => {
                     response.body.should.have.property('error');
             });
 
+  it("Should not post a blog when  image size is big ", async () => {
+                const response = await chai
+                .request(app)
+                .post("/api/blogs")
+                .set("Authorization", token)
+                .field({
+                    title: mockData.blogsData.title,
+                    description: mockData.blogsData.description,
+                })
+                .attach(
+                    "blogImage",
+                    fs.readFileSync("src/tests/file/size.png"),
+                    "size.png"
+                );
+                    response.should.have.status(500);
+                    response.body.should.be.a('object');
+            });
+
 
 it("Should show a list of blogs", async () => {
             await chai

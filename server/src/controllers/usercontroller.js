@@ -43,7 +43,7 @@ static async login (req, res) {
         if (!verifyPassword) return Response.error(res, 400, "password  not match");
         const token = signToken(verifyUser);
         const { _id, email } = verifyUser;
-        return Response.success(res, 200, "sucessfully logged in", {User: {_id, email}, token});
+        return Response.success(res, 200, "sucessfully logged in",  token);
     } catch (error) {
        return Response.error(res, 500, "Something went wrong"); 
     }

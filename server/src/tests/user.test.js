@@ -4,6 +4,7 @@ import chaihttp from "chai-http";
 import mockData from "../tests/testData";
 import app from "../index";
 import User from "../models/userauth";
+import fs from 'fs';
 
  chai.use(chaihttp);
  chai.should();
