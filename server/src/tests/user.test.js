@@ -70,4 +70,30 @@ import fs from 'fs';
       response.body.should.be.a("object");
       response.body.should.have.property('error');
   });
+
+it("should update the user's profile picture", async () => {
+    const userRes = await chai
+      .request(app)
+      .post("/api/users/signUp")
+      .send(mockData.signUpValid);
+
+    const resLogin = await chai
+      .request(app)
+      .post("/api/users/login")
+      .send(mockData.logInvalid);
+    const response = await chai
+      .request(app)
+      .put(`/api/users/updateProfile/${userRes.body.data.newUser._id}`)
+      .set('Authorization', resLogin.body.data)
+      .field({
+        email: mockData.updateProfile.email,
+        password: mockData.updateProfile.password,
+      })
+      .attach(
+        "profileImage",
+        fs.readFileSync("src/tests/file/tree.jpg"),
+        "tree.jpg"
+      );
+      response.should.have.status(200);
+  });
   });
