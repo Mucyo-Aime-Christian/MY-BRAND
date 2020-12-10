@@ -78,5 +78,20 @@ const token= jwt.sign(
                       response.body.should.be.a('object');
                       response.body.should.have.property('data');
                       response.body.should.have.property("msg");
-                  });                               
+                  });           
+    
+    it("should allow token beholder to view a single  query", async () => {
+                 const queryResponse = await chai
+                  .request(app)                
+                  .post("/api/queries")
+                  .send(mockData.query);
+                  const response = await chai
+                  .request(app)
+                  .get(`/api/queries/${queryResponse.body.data._id}`)
+                  .set('Authorization', token);
+                      response.should.have.status(200);
+                      response.body.should.be.a('object');
+                      response.body.should.have.property('data');
+                      response.body.should.have.property("msg");
+                  });                         
  });    

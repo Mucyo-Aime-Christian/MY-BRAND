@@ -32,7 +32,7 @@ router.get(
  *     tags:
  *       - Blogs
  *     name: Blog
- *     summary: Retrieve all blogs
+ *     summary: Retrieve single blog 
  *     consumes:
  *        - application/json
  *     parameters:
@@ -88,7 +88,7 @@ router.get(
  *       400:
  *             description: Bad request.
  *       401:
- *             description: unauthorized
+ *             description: unAuthorized
  * */
 
 router.post(
@@ -108,7 +108,7 @@ router.post(
  *     name: blog
  *     summary: Update a blog
  *     consumes:
- *       - application/json
+ *       - multipart/form-data
  *     parameters:
  *       - name: Authorization
  *         in: header
@@ -116,15 +116,18 @@ router.post(
  *       - name: id
  *         in: path
  *         required: true
- *       - name: body
- *         in: body
- *         schema:
- *             type: object
- *             properties:
- *                title:
- *                 type: string
- *                description:
- *                 type: string
+ *       - in: formData
+ *         name: title
+ *         type: string
+ *         required: false
+ *       - in: formData
+ *         name: description
+ *         type: string
+ *         required: false
+ *       - in: formData
+ *         name: blogImage
+ *         type: file
+ *         required: false
  *     responses:
  *       200:
  *             description: Blog successfully updated.
@@ -142,8 +145,8 @@ router.post(
 router.put(
     "/:id", 
     loggeduserandadmin.checkAdmin, 
+    baseValidator.updateblogValidate, 
     upload.single("blogImage"),
-    baseValidator.blogvalidation, 
     BlogsController.updateBlog
     );
 

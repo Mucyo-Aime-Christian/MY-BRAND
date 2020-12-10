@@ -25,20 +25,21 @@ const router = express.Router();
  *             properties:
  *                Name:
  *                 type: string
+ *                 required: true
  *                Email:
- *                 type:string
+ *                 type: string
+ *                 required: true
  *                comment:
  *                 type: string
- *             required:
- *                 -Name
- *                 -Email
- *                 -comment
+ *                 required: true
  *               
  *     responses:
  *       201:
  *             description: Comment successfully added.
  *       400:
  *             description: Bad request.
+ *       404:
+ *             description: blog not found.
  *       500:
  *             description: server error.
  * */

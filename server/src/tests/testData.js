@@ -20,6 +20,10 @@ const mockData ={
      email: "ail.com",
      password: "c"
     },
+    updateProfile: {
+     email: "christianmucyo4@gmail.com",
+     password: "chrisdolla"
+    },
      blogsData: {
      title: "testing Blog post",
      description: "Description"
